@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #333;
+  background: orange;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -13,9 +13,9 @@ body {
     position: relative;
     width: 352px;
     height: 198px;
-    outline: 1px soild #fff;
-
-    transform: scale(3) translateY(50%);
+    margin: 0 auto;
+    outline: 1px solid white;
+    transform: scale(2.5) translateY(50%);
 }
 
 .game-container canvas {

@@ -6,17 +6,36 @@ class Overworld {
     }
 
     init() {
+        // draw background
         const image = new Image();
         image.onload = () => {
             this.ctx.drawImage(image,0,0);
-        }
+        };
         image.src = "/images/maps/DemoLower.png";
 
-        const mc = new Image();
-        mconsole.onload = () => {
-            thistory.ctx.drawImage(hero,)
-        }
+        // place mc
+        const mc = new GameObject({
+            x: 5,
+            y: 6,
+            src: "/images/characters/people/hero.png"
+        })
+
+        // place customer
+        const customer = new GameObject({
+            x: 7,
+            y: 9,
+            src: "/images/characters/people/npc1.png"
+        })
 
 
+        // draw objects using method draw in sprite class
+        setTimeout(() => {
+            customer.sprite.draw(this.ctx);
+        }, 600);
+
+        setTimeout(() => {
+            mc.sprite.draw(this.ctx);
+        }, 100);
+        
     }
 }
