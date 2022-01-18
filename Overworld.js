@@ -14,7 +14,7 @@ class Overworld {
 
         const mc = new Image();
         mconsole.onload = () => {
-            
+            thistory.ctx.drawImage(hero,)
         }
 
 
