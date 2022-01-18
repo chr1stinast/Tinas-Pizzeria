@@ -1,5 +1,6 @@
+* {
+  box-sizing:border-box;
+}
 body {
-    background-image: url("images/hi.jpeg");
-    background-repeat: no-repeat;
-    background-position: center;
-   }
+  background: #333;
+}
