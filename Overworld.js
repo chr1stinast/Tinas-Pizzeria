@@ -36,6 +36,9 @@ class Overworld {
         setTimeout(() => {
             mc.sprite.draw(this.ctx);
         }, 100);
+
+        // have game loop started when you click play or smth
+        // loading screen
         
     }
 }
