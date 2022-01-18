@@ -27,7 +27,7 @@ class Overworld {
             src: "/images/characters/people/npc1.png"
         })
 
-
+        
         // draw objects using method draw in sprite class
         setTimeout(() => {
             customer.sprite.draw(this.ctx);
