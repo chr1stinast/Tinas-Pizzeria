@@ -5,37 +5,31 @@ class Overworld {
         this.ctx = this.canvas.getContext("2d");
     }
 
+    startGameLoop() {
+        const step = () => {
+
+            //Clear off the canvas
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+            //Draw Map itself
+            this.map.drawMap(this.ctx);
+
+            //Draw Game Objects
+            Object.values(this.map.gameObjects).forEach(object => {
+                object.sprite.draw(this.ctx);
+            })
+
+            // makes it run abt 60 fps, a new frame loading for each "step"
+            requestAnimationFrame(() => {
+                step();
+            })
+        }
+        step();
+    }
+
     init() {
-        // draw background
-        const image = new Image();
-        image.onload = () => {
-            this.ctx.drawImage(image,0,0);
-        };
-        image.src = "/images/maps/DemoLower.png";
-
-        // place mc
-        const mc = new GameObject({
-            x: 5,
-            y: 6,
-            src: "/images/characters/people/hero.png"
-        })
-
-        // place customer
-        const customer = new GameObject({
-            x: 7,
-            y: 9,
-            src: "/images/characters/people/npc1.png"
-        })
-
-        
-        // draw objects using method draw in sprite class
-        setTimeout(() => {
-            customer.sprite.draw(this.ctx);
-            mc.sprite.draw(this.ctx);
-        }, 600);
-
-        // have game loop started when you click play or smth
-        // loading screen
-        
+        // draw the map and start the game loop
+        this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+        this.startGameLoop();
     }
 }
