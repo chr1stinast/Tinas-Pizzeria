@@ -31,11 +31,8 @@ class Overworld {
         // draw objects using method draw in sprite class
         setTimeout(() => {
             customer.sprite.draw(this.ctx);
-        }, 600);
-
-        setTimeout(() => {
             mc.sprite.draw(this.ctx);
-        }, 100);
+        }, 600);
 
         // have game loop started when you click play or smth
         // loading screen
