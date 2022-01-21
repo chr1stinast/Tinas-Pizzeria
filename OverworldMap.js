@@ -4,10 +4,25 @@ class OverworldMap {
 
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
+
+    this.upperImage = new Image();
+    this.upperImage.src = config.upperSrc;
   }
 
-  drawMap(ctx) {
-    ctx.drawImage(this.lowerImage, 0, 0)
+  drawLowerImage(ctx, cameraPerson) {
+    ctx.drawImage(
+      this.lowerImage, 
+      utils.withGrid(10.5) - cameraPerson.x, 
+      utils.withGrid(6) - cameraPerson.y
+      )
+  }
+
+  drawUpperImage(ctx, cameraPerson) {
+    ctx.drawImage(
+      this.upperImage, 
+      utils.withGrid(10.5) - cameraPerson.x, 
+      utils.withGrid(6) - cameraPerson.y
+      )
   }
 }
 
@@ -15,6 +30,7 @@ class OverworldMap {
 window.OverworldMaps = {
   DemoRoom: {
     lowerSrc: "/images/maps/DemoLower.png",
+    upperSrc: "/images/maps/DemoUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
