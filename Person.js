@@ -17,6 +17,7 @@ class Person extends GameObject {
     update(state) {
         // updates position every frame
         this.updatePosition();
+        this.updateSprite(state);
 
         // moves character
         if (this.isPlayerControlled && this.movingProgressRemaining === 0 && state.arrow) {
@@ -31,6 +32,19 @@ class Person extends GameObject {
             const [property, change] = this.directionUpdate[this.direction];
             this[property] += change;
             this.movingProgressRemaining -= 1;
+        }
+    }
+
+    // sets animation to walking/idle + direction depending on input
+    updateSprite(state) {
+        // if there's no arrow being pressed, has no moving left to go: set animation to idle
+        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && !state.arrow) {
+            this.sprite.setAnimation("idle-" + this.direction);
+            return;
+        }
+        // uses walk animation if there's more moving left to go
+        if (this.movingProgressRemaining > 0) {
+            this.sprite.setAnimation("walk-" + this.direction);
         }
     }
 }
