@@ -42,6 +42,35 @@ class Sprite {
       // reference game object
       this.gameObject = config.gameObject;
     }
+
+    get frame() {
+      return this.animations[this.currentAnimation][this.currentAnimationFrame];
+    }
+
+    setAnimation(key) {
+      if (this.currentAnimation != key) {
+        this.currentAnimation = key;
+        this.currentAnimationFrame = 0;
+        this.animationFrameProgress = this.animationFrameLimit;
+      }
+    }
+
+    updateAnimationProgress() {
+      //Downstrick frame progress
+      if (this.animationFrameProgress > 0) {
+        this.animationFrameProgress -= 1;
+        return;
+      }
+
+      this.animationFrameProgress = this.animationFrameLimit;
+      this.currentAnimationFrame += 1;
+
+      // handles if it goes off the bounds of the frames given
+      if (this.frame === undefined) {
+        this.currentAnimationFrame = 0;
+      }
+
+    }
     
     // returns which animation + animation frame we're on
     get frame() {
@@ -79,11 +108,19 @@ class Sprite {
       const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
   
       this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
+<<<<<<< HEAD
       
       const [frameX, frameY] = this.frame;
       this.isLoaded && ctx.drawImage(this.image,
         // multiply by grid size
         frameX * 32 , frameY * 32, // left cut
+=======
+  
+
+      const [frameX, frameY] = this.frame;
+      this.isLoaded && ctx.drawImage(this.image,
+        frameX * 32, frameY * 32,// left cut
+>>>>>>> 5943e66548df9d5e27e69318d5e0edfa6a89de62
         32,32, // right cut
         x,y, // 16x16 coordinates 
         32,32 // px size
