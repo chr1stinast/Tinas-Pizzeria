@@ -34,10 +34,11 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach(key => {
+    Object.values(this.gameObjects).forEach(o => {
+    // Object.values(this.gameObjects).forEach(key => {
 
-      let object = this.gameObjects(key);
-      object.id = key;
+    //   let object = this.gameObjects(key);
+    //   object.id = key;
 
       //TODO: determine if this object should actually mount
       o.mount(this);

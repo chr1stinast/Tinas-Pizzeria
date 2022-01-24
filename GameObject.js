@@ -45,7 +45,7 @@ class GameObject {
 
     // detting the next event to fire
     this.behaviorLoopIndex += 1;
-    if (this.behaviorLoopIndex === tjos.behaviorLoop.length) {
+    if (this.behaviorLoopIndex === this.behaviorLoop.length) {
       this.behaviorLoopIndex = 0;
     }
 
