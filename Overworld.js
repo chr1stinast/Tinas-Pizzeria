@@ -8,7 +8,7 @@ class Overworld {
     startGameLoop() {
         const step = () => {
 
-            //Clear off the canvas
+            // Clears previous frames from the canvas to allow for smooth clean movement
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
             // Establish the camera person
