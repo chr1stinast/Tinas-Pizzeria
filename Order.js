@@ -3,6 +3,7 @@ class Order {
     constructor(topping, num, orderNumber) {
         this.topping = topping;
         this.num = num;
+        // work on making orderNumber a static variable that automatically increments and doesn't need to be passed through
         this.orderNumber = orderNumber;
     }
     displayInfo() {
