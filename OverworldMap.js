@@ -29,8 +29,8 @@ class OverworldMap {
 // list of maps 
 window.OverworldMaps = {
   DemoRoom: {
-    lowerSrc: "/images/maps/DemoLower.png",
-    upperSrc: "/images/maps/DemoUpper.png",
+    lowerSrc: "/images/maps/kitchen.png",
+    upperSrc: "/images/maps/upperKitchen.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
