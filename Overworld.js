@@ -1,8 +1,9 @@
 class Overworld {
     constructor(config) {
-        this.element = config.element;
-        this.canvas = this.element.querySelector(".game-canvas");
-        this.ctx = this.canvas.getContext("2d");
+      this.element = config.element;
+      this.canvas = this.element.querySelector(".game-canvas");
+      this.ctx = this.canvas.getContext("2d");
+      this.map = null;
     }
 
     startGameLoop() {
@@ -39,15 +40,14 @@ class Overworld {
         }
         step();
     }
-
+   
     init() {
-        // draw the map and start the game loop
-        this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
-
-        this.directionInput = new DirectionInput();
-        this.directionInput.init();
-        this.directionInput.direction; // returns strings such as "down"
-
-        this.startGameLoop();
+     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+     this.map.mountObjects();
+   
+     this.directionInput = new DirectionInput();
+     this.directionInput.init();
+   
+     this.startGameLoop();
     }
-}
+   }
