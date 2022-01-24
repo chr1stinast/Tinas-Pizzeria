@@ -34,7 +34,7 @@ class Sprite {
       this.currentAnimationFrame = 0;
       
       // time element to know when to switch frames (greater the number the more slow)
-      this.animationFrameLimit = config.animationFrameLimit || 12;
+      this.animationFrameLimit = config.animationFrameLimit || 8;
 
       // how much time before switching to next frame
       this.animationFrameProgress = this.animationFrameLimit;
