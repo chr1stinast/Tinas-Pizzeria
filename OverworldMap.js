@@ -55,7 +55,9 @@ class OverworldMap {
 }
 
 window.OverworldMaps = {
+  // can be used to set up different maps
   DemoRoom: {
+    id: "DemoRoom",
     lowerSrc: "/images/maps/kitchen.png",
     upperSrc: "/images/maps/upperKitchen.png",
     gameObjects: {
@@ -77,24 +79,32 @@ window.OverworldMaps = {
       [utils.asGridCoord(8,7)] : true,
     }
   },
-  Kitchen: {
-    lowerSrc: "/images/maps/KitchenLower.png",
-    upperSrc: "/images/maps/KitchenUpper.png",
+  Street: {
+    id: "Street",
+    lowerSrc: "/images/maps/StreetLower.png",
+    upperSrc: "/images/maps/StreetUpper.png",
     gameObjects: {
-      hero: new GameObject({
-        x: 3,
-        y: 5,
-      }),
-      npcA: new GameObject({
-        x: 9,
-        y: 6,
-        src: "/images/characters/people/npc2.png"
-      }),
-      npcB: new GameObject({
-        x: 10,
-        y: 8,
-        src: "/images/characters/people/npc3.png"
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
+        src: "/images/characters/people/hero.png"
       })
     }
-  },
+    // cutsceneSpaces: { video 15
+    //   [utils.asGridCoord(29,9)]: [
+    //     {
+    //       events: [
+    //         {
+    //           type: "changeMap",
+    //           map: "Kitchen",
+    //           x: utils.withGrid(5),
+    //           y: utils.withGrid(6),
+    //           direction: "up"
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }
+  }
 }
