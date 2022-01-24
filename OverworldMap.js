@@ -28,6 +28,7 @@ class OverworldMap {
 
 // list of maps 
 window.OverworldMaps = {
+  // can be used to set up different maps
   DemoRoom: {
     id: "DemoRoom",
     lowerSrc: "/images/maps/kitchen.png",
