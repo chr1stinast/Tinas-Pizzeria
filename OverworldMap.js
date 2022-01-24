@@ -29,6 +29,7 @@ class OverworldMap {
 // list of maps 
 window.OverworldMaps = {
   DemoRoom: {
+    id: "DemoRoom",
     lowerSrc: "/images/maps/kitchen.png",
     upperSrc: "/images/maps/upperKitchen.png",
     gameObjects: {
@@ -44,5 +45,33 @@ window.OverworldMaps = {
         src: "/images/characters/people/npc1.png"
       })
     }
+  },
+  Street: {
+    id: "Street",
+    lowerSrc: "/images/maps/StreetLower.png",
+    upperSrc: "/images/maps/StreetUpper.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
+        src: "/images/characters/people/hero.png"
+      })
+    }
+    // cutsceneSpaces: { video 15
+    //   [utils.asGridCoord(29,9)]: [
+    //     {
+    //       events: [
+    //         {
+    //           type: "changeMap",
+    //           map: "Kitchen",
+    //           x: utils.withGrid(5),
+    //           y: utils.withGrid(6),
+    //           direction: "up"
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }
   }
 }
