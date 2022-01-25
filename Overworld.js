@@ -47,9 +47,13 @@ class Overworld {
     this.directionInput = new DirectionInput();
     this.directionInput.init();
 
-    let order1 = new Order("pepperoni", 5, 1);
+    const order1 = new Order("Pepperoni", 5, 60, 1);
     order1.displayInfo();
+
+    const order2 = new Order("Pepperoni", 6, 60, 2);
+    order2.displayInfo();
     
+
     this.startGameLoop();
   }
 }
