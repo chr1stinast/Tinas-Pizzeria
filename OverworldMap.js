@@ -93,6 +93,11 @@ window.OverworldMaps = {
           { type: "walk", diretion: "right"},
           { type: "walk", diretion: "down"},
         ]
+      }),
+      pizzaStone: new PizzaStone ({
+        x: utils.withGrid(2),
+        y: utils.withGrid(7),
+        storyFlag: "USED_PIZZA_STONE"
       })
     },
     walls: {
