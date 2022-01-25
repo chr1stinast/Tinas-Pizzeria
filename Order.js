@@ -5,6 +5,7 @@ class Order {
     // - baking station
     // - cutting station
     // - score for respective stations
+    // aspects of orders: the order itself and the data that the player produces (product?)
     constructor(topping, num, orderNumber) {
         this.topping = topping;
         this.num = num;
