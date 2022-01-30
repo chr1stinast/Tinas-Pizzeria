@@ -30,7 +30,7 @@ class Sprite {
         "walk-up"   : [ [1,2],[0,2],[3,2],[0,2], ],
         "walk-left" : [ [1,3],[0,3],[3,3],[0,3], ]
       }
-      this.currentAnimation = config.currentAnimation || "idle-down"; 
+      this.currentAnimation = "idle-right"; //config.currentAnimation || "idle-down"; 
       this.currentAnimationFrame = 0;
       
       // time element to know when to switch frames (greater the number the more slow)
@@ -41,35 +41,6 @@ class Sprite {
 
       // reference game object
       this.gameObject = config.gameObject;
-    }
-
-    get frame() {
-      return this.animations[this.currentAnimation][this.currentAnimationFrame];
-    }
-
-    setAnimation(key) {
-      if (this.currentAnimation != key) {
-        this.currentAnimation = key;
-        this.currentAnimationFrame = 0;
-        this.animationFrameProgress = this.animationFrameLimit;
-      }
-    }
-
-    updateAnimationProgress() {
-      //Downstrick frame progress
-      if (this.animationFrameProgress > 0) {
-        this.animationFrameProgress -= 1;
-        return;
-      }
-
-      this.animationFrameProgress = this.animationFrameLimit;
-      this.currentAnimationFrame += 1;
-
-      // handles if it goes off the bounds of the frames given
-      if (this.frame === undefined) {
-        this.currentAnimationFrame = 0;
-      }
-
     }
     
     // returns which animation + animation frame we're on

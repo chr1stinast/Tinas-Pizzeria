@@ -11,6 +11,8 @@ class GameObject {
 
       this.behaviorLoop = config.behaviorLoop || [];
       this.behaviorLoopIndex = 0;
+
+      this.talking = config.talking || [];
     }
 
   mount(map) { // makes object count as a wall to avoid collisions
@@ -30,7 +32,8 @@ class GameObject {
   async doBehaviorEvent(map) { // async key word allows await
 
     // dont do anything if there's a cutscene playing or if it doesn't have a behavior
-    if (map.isCutscenePlaying || this.behaviorLoop.length === 0) {
+    if (map.isCutscenePlaying || this.behaviorLoop.length === 0 || this.isStanding) {
+      // by placing a return here, it stops the method if any of the above conditions (which we don't want) are true
       return;
     }
 
@@ -43,7 +46,7 @@ class GameObject {
     await eventHandler.init(); // gonna tell the code that this bit is gonna wait a little to resolve
     //nothing is gonna run until previous line is finished
 
-    // detting the next event to fire
+    // setting the next event to fire
     this.behaviorLoopIndex += 1;
     if (this.behaviorLoopIndex === this.behaviorLoop.length) {
       this.behaviorLoopIndex = 0;
