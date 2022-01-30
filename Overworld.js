@@ -90,5 +90,13 @@ init() {
  //   // { who: "npcA", type: "stand",  direction: "up", time: 800 },
  // ])
 
-}
+    const order1 = new Order("Pepperoni", 5, 60, 1);
+    order1.displayInfo();
+
+    const order2 = new Order("Pepperoni", 6, 60, 2);
+    order2.displayInfo();
+    
+
+    this.startGameLoop();
+  }
 }

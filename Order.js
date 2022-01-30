@@ -3,16 +3,21 @@ class Order {
     // - order number/info
     // - topping station
     // - baking station
-    // - cutting station
+    // - cutting station (?)
     // - score for respective stations
-    constructor(topping, num, orderNumber) {
-        this.topping = topping;
-        this.num = num;
-        // work on making orderNumber a static variable that automatically increments and doesn't need to be passed through
-        this.orderNumber = orderNumber;
+    // aspects of orders: the order itself and the data that the player produces (product?)
+    constructor(type, amount, time, orderNum) {
+        this.type = type;
+        this.amount = amount;
+        this.time = time;
+        this.orderNum = orderNum;
     }
     displayInfo() {
-        console.log("Order #" + this.orderNumber + ": " + this.topping + " pizza with " + this.num + " on it.");
+        console.log("Order #" + this.orderNum + ": " + this.type + " pizza with " + this.amount + " " + this.type + "s on it.");
     }
-    // method to take input (player activity), and compares it with order info then calculates + displays score while also updating player.js
+    calculateScore() {
+        // takes player input; if the amount and type of toppings are equal and the time didnt run out, your score will be higher->otherwise lower(figure out math equation for scoring)
+    }
+    // take this score and transfer it to entire player progress type thing hich stores data from each order and not just one order
+    // difficulties: checking to see if the topping was placed in a certain area and having that affect score too
 }
