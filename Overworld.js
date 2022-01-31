@@ -83,7 +83,7 @@ init() {
 
  this.map.startCutscene([
    
-   { type: "textMessage", text: "This is the very first message!"}
+   { type: "textMessage", text: "Mika Be is a flop!"}
    
  ])
 
