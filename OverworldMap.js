@@ -137,18 +137,18 @@ window.OverworldMaps = {
         x: utils.withGrid(8),
         y: utils.withGrid(5),
         src: "/images/characters/people/npc2.png",
-        // behaviorLoop: [
-        //   { type: "walk", diretion: "left"},
-        //   { type: "stand", direction: "up", time: 800 },
-        //   { type: "walk", diretion: "right"},
-        //   { type: "walk", diretion: "down"},
-        // ]
-      }),
-      pizzaStone: new PizzaStone ({
-        x: utils.withGrid(2),
-        y: utils.withGrid(7),
-        storyFlag: "USED_PIZZA_STONE"
+        behaviorLoop: [
+          { type: "walk", diretion: "left"},
+          { type: "stand", direction: "up", time: 800 },
+          { type: "walk", diretion: "right"},
+          { type: "walk", diretion: "down"},
+        ]
       })
+      // pizzaStone: new PizzaStone ({
+      //   x: utils.withGrid(2),
+      //   y: utils.withGrid(7),
+      //   storyFlag: "USED_PIZZA_STONE"
+      // })
     },
     walls: {
       // add walls along outside of map--figure out more optimal way to create walls
