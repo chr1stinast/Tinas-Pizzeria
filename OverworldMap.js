@@ -144,11 +144,11 @@ window.OverworldMaps = {
         //   { type: "walk", diretion: "down"},
         // ]
       }),
-      pizzaStone: new PizzaStone ({
-        x: utils.withGrid(2),
-        y: utils.withGrid(7),
-        storyFlag: "USED_PIZZA_STONE"
-      })
+      // pizzaStone: new PizzaStone ({
+      //   x: utils.withGrid(2),
+      //   y: utils.withGrid(7),
+      //   storyFlag: "USED_PIZZA_STONE"
+      // })
     },
     walls: {
       // add walls along outside of map--figure out more optimal way to create walls
@@ -169,6 +169,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(7,10)] : true,
       [utils.asGridCoord(6,10)] : true,
       //[utils.asGridCoord(5,10)] : true,
+      [utils.asGridCoord(5,11)] : true,
       [utils.asGridCoord(4,10)] : true,
       [utils.asGridCoord(3,10)] : true,
       [utils.asGridCoord(2,10)] : true,
@@ -240,6 +241,36 @@ window.OverworldMaps = {
           }
         ]
       })
+    },
+    walls: {
+      // add walls along outside of map--figure out more optimal way to create walls
+      [utils.asGridCoord(5,8)] : true,
+      [utils.asGridCoord(4,8)] : true,
+      [utils.asGridCoord(6,8)] : true,
+      [utils.asGridCoord(4,7)] : true,
+      [utils.asGridCoord(6,7)] : true,
+    },
+    cutsceneSpaces: {
+      [utils.asGridCoord(7,4)]: [
+        {
+          // bug: hero can keep walking even after event is triggered
+          events: [
+            { who: "npcB", type: "walk",  direction: "left" },
+            { who: "npcB", type: "stand",  direction: "up", time: 500 },
+            { type: "textMessage", text:"You can't be in there!"},
+            { who: "npcB", type: "walk",  direction: "right" },
+            { who: "hero", type: "walk",  direction: "down" },
+            { who: "hero", type: "walk",  direction: "left" },
+          ]
+        }
+      ],
+      [utils.asGridCoord(5,9)]: [
+        {
+          events: [
+            { type: "changeMap", map: "DemoRoom" }
+          ]
+        }
+      ]
     }
     // cutsceneSpaces: { video 15
     //   [utils.asGridCoord(29,9)]: [
