@@ -144,11 +144,11 @@ window.OverworldMaps = {
         //   { type: "walk", diretion: "down"},
         // ]
       }),
-      pizzaStone: new PizzaStone ({
-        x: utils.withGrid(2),
-        y: utils.withGrid(7),
-        storyFlag: "USED_PIZZA_STONE"
-      })
+      // pizzaStone: new PizzaStone ({
+      //   x: utils.withGrid(2),
+      //   y: utils.withGrid(7),
+      //   storyFlag: "USED_PIZZA_STONE"
+      // })
     },
     walls: {
       // add walls along outside of map--figure out more optimal way to create walls
