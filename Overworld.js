@@ -66,8 +66,8 @@ startMap(mapConfig) {
 }
 
 init() {
- this.hud = new Hud();
- this.hud.init(document.querySelector(".game-container"));
+//  this.hud = new Hud();
+//  this.hud.init(document.querySelector(".game-container"));
 
  this.startMap(window.OverworldMaps.DemoRoom);
 

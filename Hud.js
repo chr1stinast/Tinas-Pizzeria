@@ -5,7 +5,7 @@ class Hud {
 
     update() {
         this.scoreboards.forEach(s => {
-            //update me.
+            s.update(window.playerState.pizzas[s.id]) // looks up current state of pizza and update scoreboard
         })
     }
 
