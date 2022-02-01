@@ -23,6 +23,7 @@ class PizzaStone extends GameObject{
             {
                 events: [
                     { type: "textMessage", text: "Approaching the legendary pizza stone..."},
+                    { type: "craftingMenu", pizzas: []},
                     { type: "addStoryFlag", flag: this.storyFlag }
                 ]
             }
@@ -30,9 +31,9 @@ class PizzaStone extends GameObject{
     }
     // video 14
     update() {
-        //this.sprite.currentAnimation = playerState.storyFlags[this.storyFlag] // playerState not implemented yet
-        //? "used-down" // if we have the pizza stone, it's used
-        //: "unused-down" // otherwise if we don't have it, its unused
+        this.sprite.currentAnimation = playerState.storyFlags[this.storyFlag]
+        ? "used-down" // if we have the pizza stone, it's used
+        : "unused-down" // otherwise if we don't have it, its unused
     }
 
 }

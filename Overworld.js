@@ -66,6 +66,9 @@ startMap(mapConfig) {
 }
 
 init() {
+//  this.hud = new Hud();
+//  this.hud.init(document.querySelector(".game-container"));
+
  this.startMap(window.OverworldMaps.DemoRoom);
 
 
@@ -78,17 +81,11 @@ init() {
  this.startGameLoop();
 
 
- // this.map.startCutscene([
- //   { who: "hero", type: "walk",  direction: "down" },
- //   { who: "hero", type: "walk",  direction: "down" },
- //   { who: "npcA", type: "walk",  direction: "up" },
- //   { who: "npcA", type: "walk",  direction: "left" },
- //   { who: "hero", type: "stand",  direction: "right", time: 200 },
- //   { type: "textMessage", text: "WHY HELLO THERE!"}
- //   // { who: "npcA", type: "walk",  direction: "left" },
- //   // { who: "npcA", type: "walk",  direction: "left" },
- //   // { who: "npcA", type: "stand",  direction: "up", time: 800 },
- // ])
+ this.map.startCutscene([
+   
+   { type: "textMessage", text: "Mika Be is a flop!"}
+   
+ ])
 
     const order1 = new Order("Pepperoni", 5, 60, 1);
     order1.displayInfo();
