@@ -69,7 +69,7 @@ init() {
 //  this.hud = new Hud();
 //  this.hud.init(document.querySelector(".game-container"));
 
- this.startMap(window.OverworldMaps.DemoRoom);
+ this.startMap(window.OverworldMaps.Street);
 
 
  this.bindActionInput();
@@ -82,8 +82,8 @@ init() {
 
 
  this.map.startCutscene([
-   
-   { type: "textMessage", text: "Mika Be is a flop!"}
+  { type: "changeMap", map: "DemoRoom"}
+  // { type: "textMessage", text: "Maria is gay!"}
    
  ])
 
