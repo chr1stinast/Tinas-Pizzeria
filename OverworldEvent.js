@@ -65,6 +65,12 @@ class OverworldEvent {
     resolve();
   }
 
+  addStoryFlag(resolve) {
+      console.log("added!")
+      window.playerState.storyFlags[this.event.flag] = true;
+      resolve();
+  }
+
   init() {
     return new Promise(resolve => {
       this[this.event.type](resolve)      
