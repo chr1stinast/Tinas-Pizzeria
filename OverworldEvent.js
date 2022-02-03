@@ -60,21 +60,15 @@ class OverworldEvent {
   }
 
   changeMap(resolve) {
-    const sceneTransition;
-    sceneTransition = new SceneTransition();
+
+    const sceneTransition = new SceneTransition();
     sceneTransition.init(document.querySelector(".game-container"), () => {
       this.map.overworld.startMap( window.OverworldMaps[this.event.map] );
       resolve();
 
-      SceneTransition.fadeOut();
+      sceneTransition.fadeOut();
 
     })
-  }
-
-  addStoryFlag(resolve) {
-      console.log("added!")
-      window.playerState.storyFlags[this.event.flag] = true;
-      resolve();
   }
 
   init() {

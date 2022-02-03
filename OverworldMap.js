@@ -241,7 +241,7 @@ window.OverworldMaps = {
         isPlayerControlled: true,
         x: utils.withGrid(5),
         y: utils.withGrid(10),
-        src: "/images/characters/people/hero.png"
+        src: "/images/characters/people/Tina.png"
       }),
       npcB: new Person({
         x: utils.withGrid(7),
