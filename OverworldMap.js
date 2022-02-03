@@ -74,7 +74,14 @@ class OverworldMap {
       return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
     });
     if (!this.isCutscenePlaying && match && match.talking.length) {
-      this.startCutscene(match.talking[0].events)
+
+      const relevantScenario = match.talking.find(scenario => {
+        return (scenario.requires || []).every(sf => {
+          return PlayerState.storyFlags[sf]
+        })
+      })
+
+      relevantScenario && this.startCutscene(relevantScenario.events)
     }
   }
 
@@ -124,11 +131,18 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["TALKED_TO_ERIO"],
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "I'm sorry I put you through that.", faceHero: "npcA"}
+            ]
+          },
+          {
             // maybe they say something in one point of the game but say something else after another point in the game
             // wonderful tool to insert easter eggs
             events: [
-              { type: "textMessage", text: "I'm busy...", faceHero: "npcA" },
-              { type: "textMessage", text: "Go away!"},
+              { type: "textMessage", text: "Have you talked to erio yet?", faceHero: "npcA" },
+              { type: "textMessage", text: "He's waiting for you outside"},
               { who: "hero", type: "walk",  direction: "up" },
             ]
           }
@@ -228,16 +242,30 @@ window.OverworldMaps = {
         isPlayerControlled: true,
         x: utils.withGrid(5),
         y: utils.withGrid(10),
-        src: "/images/characters/people/hero.png"
+        src: "/images/characters/people/Tina.png"
       }),
       npcB: new Person({
         x: utils.withGrid(7),
         y: utils.withGrid(10),
         src: "/images/characters/people/npc3.png",
         talking: [
+          // {
+          //   required: ["TALKED_TO_ERIO"],
+          //   events: [
+          //     { type: "textMessage", text: "...", faceHero: "npcB"},
+          //     { type: "textMessage", text: "Just forget I said anything."}
+          //   ]
+          // },
           {
             events: [
-              { type: "textMessage", text: "You made it!", faceHero:"npcB" },
+              { type: "textMessage", text: "You made it!", faceHero:"npcB" }, //faceHEro refers to who the hero should face
+              { type: "textMessage", text: "I'm so happy you're here, now I can finally confess!" },
+              { type: "textMessage", text: "I... I... I love you..." },
+              { who: "hero", type: "walk",  direction: "left" },
+              { who: "hero", type: "walk",  direction: "up" },
+              { type: "changeMap", map: "DemoRoom" },
+              {type: "addStoryFlag", flag: "TALKED_TO_ERIO"}
+
             ]
           }
         ]
