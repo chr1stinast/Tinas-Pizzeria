@@ -65,6 +65,19 @@ class OverworldEvent {
     resolve();
   }
 
+  pause(resolve) {
+    //console.log("PAUSE NOW!");
+    this.map.isPaused = true;
+    const menu = new PauseMenu({
+      onComplete: () => {
+        resolve();
+        this.map.isPaused = false;
+        this.map.overworld.startGameLoop();
+      }
+    });
+    menu.init(document.querySelector(".game-container"));
+  }
+
   init() {
     return new Promise(resolve => {
       this[this.event.type](resolve)      
