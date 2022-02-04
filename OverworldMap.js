@@ -76,11 +76,10 @@ class OverworldMap {
     if (!this.isCutscenePlaying && match && match.talking.length) {
 
       const relevantScenario = match.talking.find(scenario => {
-        return (scenario.requires || []).every(sf => {
-          return PlayerState.storyFlags[sf]
+        return (scenario.required || []).every(sf => {
+          return playerState.storyFlags[sf]
         })
       })
-
       relevantScenario && this.startCutscene(relevantScenario.events)
     }
   }
@@ -91,6 +90,47 @@ class OverworldMap {
     if (!this.isCutscenePlaying && match) {
       this.startCutscene( match[0].events )
     }
+  }
+
+  walkToDoor(doorx, doory) {
+    // not perfect, doesn't account for walls in the way
+    var i = 0;
+    var xx = hero.x;
+    var yy = hero.y;
+    var directions = [];
+   while (doorx != xx) {
+      if (doorx > xx) {
+        directions[i] = "right"
+        xx += utils.withGrid(1);
+      } else {
+        directions[i] = "left"
+        xx -= utils.withGrid(1);
+      }
+      if (this.walls[`${xx}, ${yy}`]) {
+        if (this.walls[`${xx}, ${yy + utils.withGrid(1)}`]){
+          directions[i] = "up"
+        } else {
+          directions[i] = "down"
+        }
+      }
+      i++;
+    }
+    while (doory != yy) {
+      if (doory > yy) {
+        directions[i] = "down"
+        yy += utils.withGrid(1);
+      } else {
+        directions[i] = "up"
+        yy -= utils.withGrid(1);
+      }
+      i++;
+    }
+    directions.forEach(directionn => {
+      this.startBehavior(state, {
+        type: "walk",
+        direction: directionn
+      })
+    })
   }
 
   addWall(x,y) {
@@ -249,23 +289,24 @@ window.OverworldMaps = {
         y: utils.withGrid(10),
         src: "/images/characters/people/npc3.png",
         talking: [
-          // {
-          //   required: ["TALKED_TO_ERIO"],
-          //   events: [
-          //     { type: "textMessage", text: "...", faceHero: "npcB"},
-          //     { type: "textMessage", text: "Just forget I said anything."}
-          //   ]
-          // },
+          {
+            required: ["TALKED_TO_ERIO"],
+            events: [
+              { type: "textMessage", text: "...", faceHero: "npcB"},
+              { type: "textMessage", text: "Just forget I said anything."}
+            ]
+          },
           {
             events: [
               { type: "textMessage", text: "You made it!", faceHero:"npcB" }, //faceHEro refers to who the hero should face
               { type: "textMessage", text: "I'm so happy you're here, now I can finally confess!" },
               { type: "textMessage", text: "I... I... I love you..." },
-              { who: "hero", type: "walk",  direction: "left" },
-              { who: "hero", type: "walk",  direction: "up" },
+              // { who: "hero", type: "walk",  direction: "left" },
+              // { who: "hero", type: "walk",  direction: "up" },
+              // walkToDoor(5*16, 9*16),
               { type: "changeMap", map: "DemoRoom" },
               {type: "addStoryFlag", flag: "TALKED_TO_ERIO"}
-
+              // walkToDoor(5*16, 9*16)
             ]
           }
         ]
