@@ -71,6 +71,19 @@ class OverworldEvent {
     })
   }
 
+  pause(resolve) {
+    //console.log("PAUSE NOW!");
+    this.map.isPaused = true;
+    const menu = new PauseMenu({
+      onComplete: () => {
+        resolve();
+        this.map.isPaused = false;
+        this.map.overworld.startGameLoop();
+      }
+    });
+    menu.init(document.querySelector(".game-container"));
+  }
+
   addStoryFlag(resolve) {
     window.playerState.storyFlags[this.event.flag] = true;
     resolve();

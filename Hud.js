@@ -7,6 +7,10 @@ class Hud {
       this.scoreboards.forEach(s => {
         s.update(window.playerState)
       })
+        // this.scoreboards.forEach(s => {
+        //     s.update(window.playerState.pizzas[s.id]) // looks up current state of pizza and update scoreboard
+        // })
+        console.log("hi");
     }
   
     createElement() {
