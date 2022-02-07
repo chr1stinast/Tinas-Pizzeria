@@ -280,6 +280,87 @@ window.OverworldMaps = {
     }
     
   },
+  Kitchen: {
+    id: "Kitchen",
+    lowerSrc: "/images/maps/KitchenLower.png",
+    upperSrc: "/images/maps/KitchenUpper.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
+      }),
+      npcC: new Person({
+        x: utils.withGrid(8),
+        y: utils.withGrid(5),
+        src: "/images/characters/people/npc4.png",
+        // behaviorLoop: [
+        //   { type: "walk", diretion: "left"},
+        //   { type: "stand", direction: "up", time: 800 },
+        //   { type: "walk", diretion: "right"},
+        //   { type: "walk", diretion: "down"},
+        // ]
+      }),
+      pizzaStone: new PizzaStone ({
+        x: utils.withGrid(4),
+        y: utils.withGrid(7),
+        storyFlag: "USED_PIZZA_STONE"
+      })
+    },
+    walls: {
+      // add walls along outside of map--figure out more optimal way to create walls
+      [utils.asGridCoord(6,3)] : true,
+      [utils.asGridCoord(8,3)] : true,
+      [utils.asGridCoord(9,3)] : true,
+      [utils.asGridCoord(10,3)] : true,
+
+      [utils.asGridCoord(11,4)] : true,
+      [utils.asGridCoord(11,5)] : true,
+      [utils.asGridCoord(11,6)] : true,
+      [utils.asGridCoord(11,7)] : true,
+      [utils.asGridCoord(11,8)] : true,
+      [utils.asGridCoord(11,9)] : true,
+      [utils.asGridCoord(10,10)] : true,
+      [utils.asGridCoord(9,10)] : true,
+      [utils.asGridCoord(8,10)] : true,
+      [utils.asGridCoord(7,10)] : true,
+      [utils.asGridCoord(6,10)] : true,
+      //[utils.asGridCoord(5,10)] : true,
+      [utils.asGridCoord(5,11)] : true,
+      [utils.asGridCoord(4,10)] : true,
+      [utils.asGridCoord(3,10)] : true,
+      [utils.asGridCoord(2,10)] : true,
+      [utils.asGridCoord(1,10)] : true,
+      [utils.asGridCoord(0,10)] : true,
+
+      [utils.asGridCoord(0,9)] : true,
+      [utils.asGridCoord(0,8)] : true,
+      [utils.asGridCoord(0,7)] : true,
+      [utils.asGridCoord(0,6)] : true,
+      [utils.asGridCoord(0,5)] : true,
+      [utils.asGridCoord(0,4)] : true,
+      [utils.asGridCoord(0,3)] : true,
+      [utils.asGridCoord(1,3)] : true,
+      [utils.asGridCoord(2,3)] : true,
+      [utils.asGridCoord(3,3)] : true,
+      [utils.asGridCoord(4,3)] : true,
+      [utils.asGridCoord(5,3)] : true,
+      [utils.asGridCoord(8,2)] : true,
+      [utils.asGridCoord(8,1)] : true,
+      [utils.asGridCoord(7,0)] : true,
+      [utils.asGridCoord(6,1)] : true,
+      [utils.asGridCoord(6,2)] : true,
+    },
+    cutsceneSpaces: {
+      [utils.asGridCoord(5,10)]: [
+        {
+          events: [
+            { type: "changeMap", map: "DemoRoom" }
+          ]
+        }
+      ],
+    },
+  },
   Street: {
     id: "Street",
     lowerSrc: "/images/maps/StreetLower.png",
