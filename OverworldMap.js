@@ -199,11 +199,11 @@ window.OverworldMaps = {
         //   { type: "walk", diretion: "down"},
         // ]
       }),
-      // pizzaStone: new PizzaStone ({
-      //   x: utils.withGrid(2),
-      //   y: utils.withGrid(7),
-      //   storyFlag: "USED_PIZZA_STONE"
-      // })
+      pizzaStone: new PizzaStone ({
+        x: utils.withGrid(4),
+        y: utils.withGrid(7),
+        storyFlag: "USED_PIZZA_STONE"
+      })
     },
     walls: {
       // add walls along outside of map--figure out more optimal way to create walls
@@ -269,7 +269,14 @@ window.OverworldMaps = {
             { type: "changeMap", map: "Street" }
           ]
         }
-      ]
+      ],
+      // [utils.asGridCoord(5,7)]:[
+      //   {
+      //     events: [
+      //       { who: "hero", type: "walk", direction: "left" }
+      //     ]
+      //   }
+      // ]
     }
     
   },
