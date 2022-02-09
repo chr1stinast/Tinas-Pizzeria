@@ -7,7 +7,7 @@ class OverworldEvent {
   stand(resolve) {
     const who = this.map.gameObjects[ this.event.who ];
     who.startBehavior({
-      map: this.map
+      map: this.mapF
     }, {
       type: "stand",
       direction: this.event.direction,

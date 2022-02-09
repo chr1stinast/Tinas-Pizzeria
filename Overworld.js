@@ -102,12 +102,14 @@ class Overworld {
      { who: "npcB", type: "walk",  direction: "left" }, 
      { who: "npcB", type: "stand",  direction: "up"},
      { type: "textMessage", text:"TINA! Back to work. NOW!"},
-     { type: "textMessage", text:"Yes sir... :("},
+     { type: "textMessage", text:"Tina: Yes sir... :("},
      { who: "hero", type: "walk",  direction: "up" }, 
      { who: "hero", type: "walk",  direction: "right" }, 
      { who: "hero", type: "walk",  direction: "right" }, 
      { who: "hero", type: "walk",  direction: "up" }, 
-     { type: "changeMap", map: "Kitchen" }
+     { type: "changeMap", map: "Kitchen" },
+     { type: "textMessage", text: "TINA!"},
+     { who: "hero", type: "walk",  direction: "up" }, 
 
    ])
   
