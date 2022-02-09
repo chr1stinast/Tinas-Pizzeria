@@ -297,10 +297,10 @@ window.OverworldMaps = {
         
         talking: [
           {
-            required: ["NOT_IN_KITCHEN_FIRST_TIME"],
+            required: ["TALKED_TO_CHEF_FLOP"],
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "Flopppppppppppppppppppppppppp.", faceHero: "npcC"}
+              { type: "textMessage", text: "KEEP COOKING PIZZAS!", faceHero: "npcC"}
             ]
           },
           {
@@ -312,8 +312,8 @@ window.OverworldMaps = {
               { type: "textMessage", text: "We need somebody to take over...", faceHero: "npcC"},
               { type: "textMessage", text: "YOU'RE IN CHARGE!", faceHero: "npcC"},
               { type: "textMessage", text: "What?! But I'm not qualified!", faceHero: "npcC"},
-              { type: "textMessage", text: "IT DOESN'T MATTER! START COOKING PIZZAS!", faceHero: "npcC"}
-
+              { type: "textMessage", text: "IT DOESN'T MATTER! START COOKING PIZZAS!", faceHero: "npcC"},
+              {type: "addStoryFlag", flag: "TALKED_TO_CHEF_FLOP"}
             ]
           }
         ]

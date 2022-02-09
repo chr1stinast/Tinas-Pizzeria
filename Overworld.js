@@ -94,7 +94,7 @@ class Overworld {
   
    this.map.startCutscene([  
      { type: "textMessage", text: "Hi! I'm Tina, an aspiring pizza chef."},
-     { type: "textMessage", text: "I hope to run my own pizzaria one day...but for now I'm just a dishwasher :("},
+     { type: "textMessage", text: "I hope to run my own pizzeria one day...but for now I'm just a dishwasher :("},
      { who: "npcB", type: "walk",  direction: "left" },
      { who: "npcB", type: "walk",  direction: "left" }, 
      { who: "npcB", type: "walk",  direction: "down" },
@@ -108,6 +108,7 @@ class Overworld {
      { who: "hero", type: "walk",  direction: "right" }, 
      { who: "hero", type: "walk",  direction: "up" }, 
      { type: "changeMap", map: "Kitchen" },
+     { type: "textMessage", text:"TINA!"},
    ])
   
     const order1 = new Order("Pepperoni", 5, 60, 1);
