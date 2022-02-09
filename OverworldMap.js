@@ -294,12 +294,29 @@ window.OverworldMaps = {
         x: utils.withGrid(8),
         y: utils.withGrid(5),
         src: "/images/characters/people/npc4.png",
-        // behaviorLoop: [
-        //   { type: "walk", diretion: "left"},
-        //   { type: "stand", direction: "up", time: 800 },
-        //   { type: "walk", diretion: "right"},
-        //   { type: "walk", diretion: "down"},
-        // ]
+        
+        talking: [
+          {
+            required: ["NOT_IN_KITCHEN_FIRST_TIME"],
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "Flopppppppppppppppppppppppppp.", faceHero: "npcC"}
+            ]
+          },
+          {
+            // maybe they say something in one point of the game but say something else after another point in the game
+            // wonderful tool to insert easter eggs
+            events: [
+              
+              { type: "textMessage", text: "CHEF MATT JUST GOT FIRED!", faceHero: "npcC"},
+              { type: "textMessage", text: "We need somebody to take over...", faceHero: "npcC"},
+              { type: "textMessage", text: "YOU'RE IN CHARGE!", faceHero: "npcC"},
+              { type: "textMessage", text: "What?! But I'm not qualified!", faceHero: "npcC"},
+              { type: "textMessage", text: "IT DOESN'T MATTER! START COOKING PIZZAS!", faceHero: "npcC"}
+
+            ]
+          }
+        ]
       }),
       pizzaStone: new PizzaStone ({
         x: utils.withGrid(4),
