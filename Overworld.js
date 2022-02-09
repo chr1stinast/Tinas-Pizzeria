@@ -107,8 +107,7 @@ class Overworld {
      { who: "hero", type: "walk",  direction: "right" }, 
      { who: "hero", type: "walk",  direction: "right" }, 
      { who: "hero", type: "walk",  direction: "up" }, 
-     { type: "changeMap", map: "Kitchen" }
-
+     { type: "changeMap", map: "Kitchen" },
    ])
   
     const order1 = new Order("Pepperoni", 5, 60, 1);
