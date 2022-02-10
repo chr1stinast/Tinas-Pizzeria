@@ -51,6 +51,7 @@ class Overworld {
     })
     new KeyPressListener("Escape", () => {
       if (!this.map.isCutscenePlaying) {
+        console.log("help me")
         this.map.startCutscene([
           { type: "pause" }
         ])
@@ -92,7 +93,28 @@ class Overworld {
   
   
    this.map.startCutscene([  
-     { type: "textMessage", text: "Mika Be is a flop!"}
+     { type: "textMessage", text: "Hi! I'm Tina, an aspiring pizza chef."},
+     { type: "textMessage", text: "I hope to run my own pizzeria one day...but for now I'm just a dishwasher :("},
+     { who: "npcB", type: "walk",  direction: "left" },
+     { who: "npcB", type: "walk",  direction: "left" }, 
+     { who: "npcB", type: "walk",  direction: "down" },
+     { who: "npcB", type: "walk",  direction: "down" },  
+     { who: "npcB", type: "walk",  direction: "left" }, 
+     { who: "npcB", type: "stand",  direction: "up"},
+     { type: "textMessage", text:"TINA! Back to work. NOW!"},
+     { type: "textMessage", text:"Yes sir... :("},
+     { who: "npcB", type: "walk",  direction: "right"},
+     { who: "npcB", type: "walk",  direction: "up"},
+     { who: "npcB", type: "walk",  direction: "up"},
+     { who: "npcB", type: "walk",  direction: "right"},
+     { who: "npcB", type: "walk",  direction: "right"},
+     { who: "npcB", type: "stand",  direction: "down"},
+     { who: "hero", type: "walk",  direction: "up" }, 
+     { who: "hero", type: "walk",  direction: "right" }, 
+     { who: "hero", type: "walk",  direction: "right" }, 
+     { who: "hero", type: "walk",  direction: "up" }, 
+     { type: "changeMap", map: "Kitchen" },
+     { type: "textMessage", text:"TINA!"},
    ])
   
     const order1 = new Order("Pepperoni", 5, 60, 1);
@@ -103,83 +125,5 @@ class Overworld {
     
 
     this.startGameLoop();
-    }
-   
-      startGameLoop() {
-        const step = () => {
-          //Clear off the canvas
-          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-          //Establish the camera person
-          const cameraPerson = this.map.gameObjects.hero;
-    
-          //Update all objects
-          Object.values(this.map.gameObjects).forEach(object => {
-            object.update({
-              arrow: this.directionInput.direction,
-              map: this.map,
-            })
-          })
-    
-          //Draw Lower layer
-          this.map.drawLowerImage(this.ctx, cameraPerson);
-    
-          //Draw Game Objects
-          Object.values(this.map.gameObjects).sort((a,b) => {
-            return a.y - b.y;
-          }).forEach(object => {
-            object.sprite.draw(this.ctx, cameraPerson);
-          })
-    
-          //Draw Upper layer
-          this.map.drawUpperImage(this.ctx, cameraPerson);
-          
-          requestAnimationFrame(() => {
-            step();   
-          })
-        }
-        step();
-    };
-   
-    bindActionInput() {
-      new KeyPressListener("Enter", () => {
-        //Is there a person here to talk to?
-        this.map.checkForActionCutscene()
-      })
-    }
-   
-    bindHeroPositionCheck() {
-      document.addEventListener("PersonWalkingComplete", e => {
-        if (e.detail.whoId === "hero") {
-          //Hero's position has changed
-          this.map.checkForFootstepCutscene()
-        }
-      })
-    }
-   
-    startMap(mapConfig) {
-     this.map = new OverworldMap(mapConfig);
-     this.map.overworld = this;
-     this.map.mountObjects();
-    }
-   
-    init() {
-     this.startMap(window.OverworldMaps.DemoRoom);
-   
-   
-     this.bindActionInput();
-     this.bindHeroPositionCheck();
-   
-     this.directionInput = new DirectionInput();
-     this.directionInput.init();
-   
-     this.startGameLoop();
-   
-   
-     // this.map.startCutscene([
-     //   { type: "changeMap", map: "DemoRoom"}
-     //   // { type: "textMessage", text: "This is the very first message!"}
-     // ])
-   
     }
    }

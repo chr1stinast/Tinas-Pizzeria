@@ -12,6 +12,7 @@
   }
   .TextMessage_p {
     margin: 0;
+    padding-left: 30px;
     font-size: 12px;
   }
   .TextMessage span {
