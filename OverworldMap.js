@@ -309,7 +309,7 @@ window.OverworldMaps = {
             // wonderful tool to insert easter eggs
             events: [
               
-              { type: "textMessage", text: "CHEF MATT JUST GOT FIRED!", faceHero: "npcC"},
+              { type: "textMessage", text: "CHEF FLOP JUST GOT FIRED!", faceHero: "npcC"},
               { type: "textMessage", text: "We need somebody to take over...", faceHero: "npcC"},
               { type: "textMessage", text: "YOU'RE IN CHARGE!", faceHero: "npcC"},
               { type: "textMessage", text: "What?! But I'm not qualified!", faceHero: "npcC"},
