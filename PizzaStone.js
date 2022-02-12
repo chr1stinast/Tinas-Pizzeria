@@ -11,6 +11,7 @@ class PizzaStone extends GameObject{
             currentAnimation: "used-down"
         });
         this.storyFlag = config.storyFlag;
+        this.pizzas = config.pizzas;
 
         // doesn't work yet cuz not implemented yet // video 14
         this.talking = [
@@ -18,14 +19,22 @@ class PizzaStone extends GameObject{
                 required: [this.storyFlag],
                 events: [
                     { type: "textMessage", text: "You have already used this." }
-                ]
+                ],
+                // required: ["TALKED_TO_CHEF_FLOP"],
+                // events: [
+                //     { type: "addStoryFlag", flag: this.storyFlag },
+                //     { type: "textMessage", text: "Approaching the legendary pizza stone..."},
+                //     { type: "craftingMenu", pizzas: this.pizzas },
+                // ]
             },
             {
+                
                 events: [
+                    // { type: "textMessage", text: "You're not allowed to use this."},
                     { type: "textMessage", text: "Approaching the legendary pizza stone..."},
-                    // { type: "craftingMenu", pizzas: []},
-                    { type: "addStoryFlag", flag: this.storyFlag }
-                ]
+                    { type: "craftingMenu", pizzas: this.pizzas },
+                    { type: "addStoryFlag", flag: this.storyFlag },
+                    ]
             }
         ]
     }
