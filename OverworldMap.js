@@ -171,7 +171,7 @@ window.OverworldMaps = {
         ],
         talking: [
           {
-            required: ["TALKED_TO_ERIO"],
+            required: ["TALKED_TO_MIKA"],
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
               { type: "textMessage", text: "I'm sorry I put you through that.", faceHero: "npcA"}
@@ -183,6 +183,8 @@ window.OverworldMaps = {
             events: [
               { type: "textMessage", text: "Have you talked to Mika yet?", faceHero: "npcA" },
               { type: "textMessage", text: "He's waiting for you outside"},
+              { type: "talk", optionA: "woah", optionB: "no thanks", optionC: "k"}, // work from here//TODO: just offer scenario instead of options
+              // i can call walk to door through this!
               { who: "hero", type: "walk",  direction: "up" },
             ]
           }
@@ -191,7 +193,7 @@ window.OverworldMaps = {
       npcB: new Person({
         x: utils.withGrid(8),
         y: utils.withGrid(5),
-        src: "/images/characters/people/npc2.png",
+        src: "/images/characters/people/Matt.png",
         // behaviorLoop: [
         //   { type: "walk", diretion: "left"},
         //   { type: "stand", direction: "up", time: 800 },
@@ -397,10 +399,10 @@ window.OverworldMaps = {
       npcB: new Person({
         x: utils.withGrid(7),
         y: utils.withGrid(10),
-        src: "/images/characters/people/npc3.png",
+        src: "/images/characters/people/Mika.png",
         talking: [
           {
-            required: ["TALKED_TO_ERIO"],
+            required: ["TALKED_TO_MIKA"],
             events: [
               { type: "textMessage", text: "...", faceHero: "npcB"},
               { type: "textMessage", text: "Just forget I said anything."}
@@ -415,7 +417,7 @@ window.OverworldMaps = {
               // { who: "hero", type: "walk",  direction: "up" },
               // walkToDoor(5*16, 9*16),
               { type: "changeMap", map: "DemoRoom" },
-              {type: "addStoryFlag", flag: "TALKED_TO_ERIO"}
+              {type: "addStoryFlag", flag: "TALKED_TO_MIKA"}
               // walkToDoor(5*16, 9*16)
             ]
           }

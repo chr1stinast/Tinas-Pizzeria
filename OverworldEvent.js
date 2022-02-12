@@ -71,10 +71,25 @@ class OverworldEvent {
     })
   }
 
+  // can make walk to door here!
+
   pause(resolve) {
     //console.log("PAUSE NOW!");
     this.map.isPaused = true;
     const menu = new PauseMenu({
+      onComplete: () => {
+        resolve();
+        this.map.isPaused = false;
+        this.map.overworld.startGameLoop();
+      }
+    });
+    menu.init(document.querySelector(".game-container"));
+  }
+
+  talk(resolve) {
+    //console.log("PAUSE NOW!");
+    this.map.isPaused = true;
+    const menu = new ZTalkExp({
       onComplete: () => {
         resolve();
         this.map.isPaused = false;
