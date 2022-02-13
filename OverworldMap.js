@@ -184,6 +184,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "Have you talked to Mika yet?", faceHero: "npcA" },
               { type: "textMessage", text: "He's waiting for you outside"},
               { type: "talk", optionA: "woah", optionB: "no thanks", optionC: "k"}, // work from here//TODO: just offer scenario instead of options
+              // { type: "talk"}, // work from here//TODO: just offer scenario instead of options
               // i can call walk to door through this!
               { who: "hero", type: "walk",  direction: "up" },
             ]

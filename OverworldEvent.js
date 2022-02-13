@@ -90,6 +90,9 @@ class OverworldEvent {
     //console.log("PAUSE NOW!");
     this.map.isPaused = true;
     const menu = new ZTalkExp({
+      optionA: this.event.text,
+      optionB: this.event.text,
+      optionC: this.event.text,
       onComplete: () => {
         resolve();
         this.map.isPaused = false;

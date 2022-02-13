@@ -1,6 +1,9 @@
 class ZTalkExp {
-    constructor({onComplete, optionA, optionB, optionC}) {
+    constructor({optionA, optionB, optionC, onComplete}) {
         this.onComplete = onComplete;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
     }
 
     getOptions() {
@@ -9,22 +12,22 @@ class ZTalkExp {
                 //All of our pizzas (dynamic)
                 //...lineupPizzas,
                 {
-                    label: optionA,
+                    label: this.optionA,
                     description: "Save your progress",
                     handler: () => {
-                        this.menuSubmit(action);
+                        // this.menuSubmit(action);
                         this.close();
                     }
                 },
                 {
-                    label: optionB,
+                    label: this.optionB,
                     description: "Close the pause menu",
                     handler: () => {
                         this.close();
                     }
                 },
                 {
-                    label: optionC,
+                    label: this.optionC,
                     description: "Close the pause menu",
                     handler: () => {
                         this.close();
@@ -36,10 +39,10 @@ class ZTalkExp {
 
     createElement() {
         this.element = document.createElement("div");
-        this.element.classList.add("PauseMenu");
-        this.element.innerHTML = (`
-            <h2>Pause Menu</h2>
-        `)
+        this.element.classList.add("Options");
+        // this.element.innerHTML = (`
+        //     <h2>Choose a response!</h2>
+        // `)
     }
 
     close() {
