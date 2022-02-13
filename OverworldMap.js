@@ -304,7 +304,8 @@ window.OverworldMaps = {
             required: ["TALKED_TO_CHEF_FLOP"],
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "KEEP COOKING PIZZAS!", faceHero: "npcC"}
+              { type: "textMessage", text: "KEEP MAKING PIZZAS!", faceHero: "npcC"},
+              { who: "npcC", type: "stand",  direction: "up"}
             ]
           },
           {
@@ -317,16 +318,19 @@ window.OverworldMaps = {
               { type: "textMessage", text: "YOU'RE IN CHARGE!", faceHero: "npcC"},
               { type: "textMessage", text: "What?! But I'm not qualified!", faceHero: "npcC"},
               { type: "textMessage", text: "IT DOESN'T MATTER! START COOKING PIZZAS!", faceHero: "npcC"},
+              { who: "npcC", type: "walk",  direction: "up"},
               {type: "addStoryFlag", flag: "TALKED_TO_CHEF_FLOP"}
             ]
           }
         ]
       }),
-      pizzaStone: new PizzaStone ({
+      pizzaStone: new PizzaStone({
         x: utils.withGrid(4),
         y: utils.withGrid(7),
-        storyFlag: "USED_PIZZA_STONE"
-      })
+        storyFlag: "USED_PIZZA_STONE",
+        pizzas: ["v001", "f001"],
+      }),
+      
     },
     walls: {
       // add walls along outside of map--figure out more optimal way to create walls
