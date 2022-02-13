@@ -1,23 +1,8 @@
-class SubmissionMenu { 
-    constructor({ caster, enemy, onComplete, items }) {
-      this.caster = caster;
-      this.enemy = enemy;
+class ZSubmissionMenu { 
+    constructor({ scenario, onComplete }) {
+      this.scenario = scenario;
       this.onComplete = onComplete;
-  
-      let quantityMap = {};
-      items.forEach(item => {
-        let existing = quantityMap[item.actionId];
-        if (existing) {
-        existing.quantity += 1;
-        } else {
-        quantityMap[item.actionId] = {
-            actionId: item.actionId,
-            quantity: 1,
-            instanceId: item.instanceId,
-        }
-        }
-      })
-      this.items = Object.values(quantityMap);
+
     }
   
     getPages() {
@@ -32,16 +17,24 @@ class SubmissionMenu {
   
       return {
         root: [
-            this.caster.actions.map(key => {
-                const action = Actions[key];
-                return {
-                  label: action.name,
-                  description: action.description,
-                  handler: () => {
-                    this.menuSubmit(action)
-                  }
-                }
-            })
+            // ...this.Actions.map(key => {
+            //     const action = Actions[key];
+            //     return {
+            //       label: action.name,
+            //       description: action.description,
+            //       handler: () => {
+            //         this.menuSubmit(action)
+            //       }
+            //     }
+            // })
+            {
+              label: "hi",
+              description: "help me",
+              handler: () => {
+                console.log("help")
+                this.menuSubmit(0)
+              }
+            }
         ]
       }
     }
@@ -53,14 +46,12 @@ class SubmissionMenu {
       })
     }
   
-    menuSubmit(action, instanceId=null) {
+    menuSubmit(actionId) {
   
       this.keyboardMenu?.end();
   
       this.onComplete({
-        action,
-        target: action.targetType === "friendly" ? this.caster : this.enemy,
-        instanceId
+        actionId
       })
     }
   

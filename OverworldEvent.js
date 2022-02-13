@@ -102,6 +102,20 @@ class OverworldEvent {
     menu.init(document.querySelector(".game-container"));
   }
 
+  submissionMenu(resolve) {
+    this.map.isPaused = true;
+    const menu = new ZSubmissionMenu({
+      scenario: scenario,
+      onComplete: submission => {
+        //submission { what move to use, who to use it on }
+        resolve(submission);
+        this.map.isPaused = false;
+        this.map.overworld.startGameLoop();
+      }
+    });
+    menu.init( document.querySelector(".game-container") );
+  }
+
   addStoryFlag(resolve) {
     window.playerState.storyFlags[this.event.flag] = true;
     resolve();

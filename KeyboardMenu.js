@@ -16,10 +16,10 @@ class KeyboardMenu {
                     <button ${disabledAttr} data-button="${index}" data-description = "${option.description}">
                         ${option.label}
                     </button>
-                    <span class="right">${option.right ? option.right() : ""}</span>
+                    <span class="right">${option.right ? option.right() : ""}</span> 
                 </div>
             `)
-        }).join("");
+        }).join(""); // right allows for a right option
         
         this.element.querySelectorAll("button").forEach(button => {
             button.addEventListener("click", () => {
