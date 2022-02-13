@@ -1,9 +1,10 @@
 class ZSubmissionMenu { 
-    constructor({ scenario, onComplete }) {
-      this.scenario = scenario;
-      this.onComplete = onComplete;
-
-    }
+  constructor({optionA, optionB, optionC, onComplete}) {
+    this.onComplete = onComplete;
+    this.optionA = optionA;
+    this.optionB = optionB;
+    this.optionC = optionC;
+}
   
     getPages() {
   
@@ -27,14 +28,29 @@ class ZSubmissionMenu {
             //       }
             //     }
             // })
+            // {
             {
-              label: "hi",
-              description: "help me",
+              label: this.optionA, 
+              description: "Save your progress",
               handler: () => {
-                console.log("help")
-                this.menuSubmit(0)
+                  // this.menuSubmit(action);
+                  this.close();
               }
-            }
+          },
+          {
+              label: this.optionB,
+              description: "Close the pause menu",
+              handler: () => {
+                  this.close();
+              }
+          },
+          {
+              label: this.optionC,
+              description: "Close the pause menu",
+              handler: () => {
+                  this.close();
+              }
+          }
         ]
       }
     }

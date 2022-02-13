@@ -183,9 +183,9 @@ window.OverworldMaps = {
             events: [
               { type: "textMessage", text: "Have you talked to Mika yet?", faceHero: "npcA" },
               { type: "textMessage", text: "He's waiting for you outside"},
-              // { type: "talk", optionA: "woah", optionB: "no thanks", optionC: "k"}, // work from here//TODO: just offer scenario instead of options
+              { type: "talk", optionA: "Only for you mar mar", optionB: "ew what the heck no", optionC: "maria's a flop", description: "Go talk to Mika?"}, // work from here//TODO: just offer scenario instead of options
               // { type: "talk"}, // work from here//TODO: just offer scenario instead of options
-              { type: "submissionMenu", scenario: "s001"},
+              // { type: "submissionMenu", optionA: "woah", optionB: "no thanks", optionC: "k"},
               // i can call walk to door through this!
               { who: "hero", type: "walk",  direction: "up" },
             ]
@@ -415,6 +415,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "You made it!", faceHero:"npcB" }, //faceHEro refers to who the hero should face
               { type: "textMessage", text: "I'm so happy you're here, now I can finally confess!" },
               { type: "textMessage", text: "I... I... I love you..." },
+              { type: "talk", optionA: "ha ha! absolutely not!", optionB: "I... I love you too!!!", optionC: "maria's a flop", description: "Mika is confessing to you!"},
               // { who: "hero", type: "walk",  direction: "left" },
               // { who: "hero", type: "walk",  direction: "up" },
               // walkToDoor(5*16, 9*16),

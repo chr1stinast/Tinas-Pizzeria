@@ -90,9 +90,15 @@ class OverworldEvent {
     //console.log("PAUSE NOW!");
     this.map.isPaused = true;
     const menu = new ZTalkExp({
-      optionA: this.event.text,
-      optionB: this.event.text,
-      optionC: this.event.text,
+      optionA: this.event.optionA,
+      optionB: this.event.optionB,
+      optionC: this.event.optionC,
+      description: this.event.description,
+      // onComplete: submission => {
+      //   resolve(submission);
+      //   this.map.isPaused = false;
+      //   this.map.overworld.startGameLoop();
+      // }
       onComplete: () => {
         resolve();
         this.map.isPaused = false;
@@ -102,10 +108,22 @@ class OverworldEvent {
     menu.init(document.querySelector(".game-container"));
   }
 
+  // choice() {
+  //   const submission = await this.onNewEvent({
+  //     type: "talk",
+  //     optionA: this.event.optionA,
+  //     optionB: this.event.optionB,
+  //     optionC: this.event.optionC,
+  //     description: this.event.description
+  //   })
+  // }
+
   submissionMenu(resolve) {
     this.map.isPaused = true;
     const menu = new ZSubmissionMenu({
-      scenario: scenario,
+      optionA: this.event.optionA,
+      optionB: this.event.optionB,
+      optionC: this.event.optionC,
       onComplete: submission => {
         //submission { what move to use, who to use it on }
         resolve(submission);
