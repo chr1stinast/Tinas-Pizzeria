@@ -6,27 +6,27 @@ class PauseMenu {
     getOptions(pageKey) {
         
         // Case 1: Show the first page of options
-        //if (pageKey === "root") {
+        if (pageKey === "root") {
             // doesn't work yet -- uses code from battle (i think)
-            // const lineupPizzas = playerState.lineup.map(id => {
-            //     const {pizzaId} = playerState.pizzas[id];
-            //     const base = Pizzas[pizzaId];
-            //     return {
-            //         label: base.name,
-            //         description: base.description,
-            //         handler: () => {
-            //             this.keyboardMenu.setOptions( this.getOptions(id) )
-            //         }
-            //     }
-            // })
+            const lineupPizzas = playerState.lineup.map(id => {
+                const {pizzaId} = playerState.pizzas[id];
+                const base = Pizzas[pizzaId];
+                return {
+                    label: base.name,
+                    description: base.description,
+                    handler: () => {
+                        this.keyboardMenu.setOptions( this.getOptions(id) )
+                    }
+                }
+            })
             return [
                 //All of our pizzas (dynamic)
-                //...lineupPizzas,
+                ...lineupPizzas,
                 {
                     label: "Save",
                     description: "Save your progress",
                     handler: () => {
-                        //
+                        this.save();
                     }
                 },
                 {
@@ -37,40 +37,42 @@ class PauseMenu {
                     }
                 }
             ]
-        //}
+        }
 
         // Case 2: Show the options for just one pizza (by id)
-        // const unequipped = Object.keys(playerState.pizzas).filter(id => {
-        //     return playerState.lineup.indexOf(id) === -1; // not in array
-        // }).map(id => {
-        //     const {pizzaId} = playerState.pizzas[id];
-        //     const base = Pizzas[pizzaId];
-        //     return {
-        //         label: 'Swap for ${base.name}',
-        //         description: base.description,
-        //         handler: () => {
-        //             //...
-        //         }
-        //     }
-        // })
-        // return [
-        //     // Swap for any unequipped pizza...
-        //     ...unequipped,
-        //     {
-        //         label: "Move to front",
-        //         description: "MOve this pizza to the front of the list",
-        //         handler: () => {
-        //             //...
-        //         }
-        //     },
-        //     {
-        //         label: "Back",
-        //         description: "Back to root menu",
-        //         handler: () => {
-        //             this.keyboardMenu.setOptions( this.getOptions("root") );
-        //         }
-        //     }
-        // ];
+        const unequipped = Object.keys(playerState.pizzas).filter(id => {
+            return playerState.lineup.indexOf(id) === -1; // not in array
+        }).map(id => {
+            const {pizzaId} = playerState.pizzas[id];
+            const base = Pizzas[pizzaId];
+            return {
+                label: `Swap for ${base.name}`,
+                description: base.description,
+                handler: () => {
+                    playerState.swapLineup(pageKey, id);
+                    this.keyboardMenu.setOptions( this.getOptions("root") );
+                }
+            }
+        })
+        return [
+            // Swap for any unequipped pizza...
+            ...unequipped,
+            {
+                label: "Move to front",
+                description: "Move this pizza to the front of the list",
+                handler: () => {
+                    playerState.moveToFront(pageKey);
+                    this.keyboardMenu.setOptions( this.getOptions("root"));
+                }
+            },
+            {
+                label: "Back",
+                description: "Back to root menu",
+                handler: () => {
+                    this.keyboardMenu.setOptions( this.getOptions("root") );
+                }
+            }
+        ];
     }
 
     createElement() {
@@ -80,6 +82,10 @@ class PauseMenu {
         this.element.innerHTML = (`
             <h2>Pause Menu</h2>
         `)
+    }
+
+    save () {
+        //
     }
 
     close() {
