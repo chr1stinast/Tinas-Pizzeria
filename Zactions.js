@@ -8,7 +8,7 @@ window.Actions = {
   },
   "s002": {
     name: "confession",
-    description: "oops! he's confessing to you",
+    description: "oops! he's confessing to you", // Mika is confessing to you!
     src: "/images/characters/pizzas/s002.png",
     icon: "/images/icons/spicy.png",
     actions: [ "ha ha! absolutely not!", "I... I love you too!!!", "maria's a flop" ], //maybe add an achievement if you pick maria's a flop the entire game

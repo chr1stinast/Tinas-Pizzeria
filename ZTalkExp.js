@@ -1,6 +1,10 @@
 class ZTalkExp {
-    constructor({onComplete, optionA, optionB, optionC}) {
+    constructor({optionA, optionB, optionC, description, onComplete}) {
         this.onComplete = onComplete;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.description = description;
     }
 
     getOptions() {
@@ -9,25 +13,25 @@ class ZTalkExp {
                 //All of our pizzas (dynamic)
                 //...lineupPizzas,
                 {
-                    label: optionA,
-                    description: "Save your progress",
+                    label: this.optionA, 
+                    description: this.description,
                     handler: () => {
-                        this.menuSubmit(action);
-                        this.close();
+                        // this.menuSubmit(action);
+                        this.close(1);
                     }
                 },
                 {
-                    label: optionB,
-                    description: "Close the pause menu",
+                    label: this.optionB,
+                    description: this.description,
                     handler: () => {
-                        this.close();
+                        this.close(2);
                     }
                 },
                 {
-                    label: optionC,
-                    description: "Close the pause menu",
+                    label: this.optionC,
+                    description: this.description,
                     handler: () => {
-                        this.close();
+                        this.close(3);
                     }
                 }
             ]
@@ -37,11 +41,18 @@ class ZTalkExp {
     createElement() {
         this.element = document.createElement("div");
         this.element.classList.add("PauseMenu");
+        this.element.classList.add("overlayMenu");
         this.element.innerHTML = (`
-            <h2>Pause Menu</h2>
+            <h2>Choose a response!</h2>
         `)
     }
 
+    // close(actionId) {
+    //     this.esc?.unbind();
+    //     this.keyboardMenu.end();
+    //     this.element.remove();
+    //     this.onComplete(actionId);
+    // }
     close() {
         this.esc?.unbind();
         this.keyboardMenu.end();

@@ -1,24 +1,10 @@
-class SubmissionMenu { 
-    constructor({ caster, enemy, onComplete, items }) {
-      this.caster = caster;
-      this.enemy = enemy;
-      this.onComplete = onComplete;
-  
-      let quantityMap = {};
-      items.forEach(item => {
-        let existing = quantityMap[item.actionId];
-        if (existing) {
-        existing.quantity += 1;
-        } else {
-        quantityMap[item.actionId] = {
-            actionId: item.actionId,
-            quantity: 1,
-            instanceId: item.instanceId,
-        }
-        }
-      })
-      this.items = Object.values(quantityMap);
-    }
+class ZSubmissionMenu { 
+  constructor({optionA, optionB, optionC, onComplete}) {
+    this.onComplete = onComplete;
+    this.optionA = optionA;
+    this.optionB = optionB;
+    this.optionC = optionC;
+}
   
     getPages() {
   
@@ -32,16 +18,39 @@ class SubmissionMenu {
   
       return {
         root: [
-            this.caster.actions.map(key => {
-                const action = Actions[key];
-                return {
-                  label: action.name,
-                  description: action.description,
-                  handler: () => {
-                    this.menuSubmit(action)
-                  }
-                }
-            })
+            // ...this.Actions.map(key => {
+            //     const action = Actions[key];
+            //     return {
+            //       label: action.name,
+            //       description: action.description,
+            //       handler: () => {
+            //         this.menuSubmit(action)
+            //       }
+            //     }
+            // })
+            // {
+            {
+              label: this.optionA, 
+              description: "Save your progress",
+              handler: () => {
+                  // this.menuSubmit(action);
+                  this.close();
+              }
+          },
+          {
+              label: this.optionB,
+              description: "Close the pause menu",
+              handler: () => {
+                  this.close();
+              }
+          },
+          {
+              label: this.optionC,
+              description: "Close the pause menu",
+              handler: () => {
+                  this.close();
+              }
+          }
         ]
       }
     }
@@ -53,14 +62,12 @@ class SubmissionMenu {
       })
     }
   
-    menuSubmit(action, instanceId=null) {
+    menuSubmit(actionId) {
   
       this.keyboardMenu?.end();
   
       this.onComplete({
-        action,
-        target: action.targetType === "friendly" ? this.caster : this.enemy,
-        instanceId
+        actionId
       })
     }
   
