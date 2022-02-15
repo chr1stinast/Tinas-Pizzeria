@@ -84,9 +84,7 @@ class PauseMenu {
         `)
     }
 
-    save () {
-        //
-    }
+    //sorry pls im testing github
 
     close() {
         this.esc?.unbind();
