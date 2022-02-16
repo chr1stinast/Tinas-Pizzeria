@@ -5,6 +5,7 @@ class ZTalkExp {
         this.optionB = optionB;
         this.optionC = optionC;
         this.description = description;
+        this.submission;
     }
 
     getOptions() {
@@ -17,21 +18,24 @@ class ZTalkExp {
                     description: this.description,
                     handler: () => {
                         // this.menuSubmit(action);
-                        this.close(1);
+                        this.submission = 1;
+                        this.close();
                     }
                 },
                 {
                     label: this.optionB,
                     description: this.description,
                     handler: () => {
-                        this.close(2);
+                        this.submission = 2;
+                        this.close();
                     }
                 },
                 {
                     label: this.optionC,
                     description: this.description,
                     handler: () => {
-                        this.close(3);
+                        this.submission = 3;
+                        this.close();
                     }
                 }
             ]
@@ -58,6 +62,10 @@ class ZTalkExp {
         this.keyboardMenu.end();
         this.element.remove();
         this.onComplete();
+    }
+
+    getIndex() {
+        return this.submission;
     }
 
     async init(container) {

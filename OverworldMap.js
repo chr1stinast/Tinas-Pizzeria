@@ -183,13 +183,16 @@ window.OverworldMaps = {
             events: [
               { type: "textMessage", text: "Have you talked to Mika yet?", faceHero: "npcA" },
               { type: "textMessage", text: "He's waiting for you outside"},
-              { type: "talk", optionA: "Only for you mar mar", optionB: "ew what the heck no", optionC: "maria's a flop", description: "Go talk to Mika?"}, // work from here//TODO: just offer scenario instead of options
-              // { type: "talk"}, // work from here//TODO: just offer scenario instead of options
-              // { type: "submissionMenu", optionA: "woah", optionB: "no thanks", optionC: "k"},
+              { type: "talk", optionA: "Only for you mar mar", optionB: "ew what the heck no", optionC: "maria's a flop", 
+                description: "Go talk to Mika?", ans1: "ily :)", ans2: "D:<", ans3: "um... ok?"}, // work from here//TODO: just offer scenario instead of options
+                // { type: "ask", target: 1, answer: "yayy"},
+              // { type: "ask", target: 2, answer: "k."},
+              // { type: "ask", target: 3, answer: "ok?"},
+              // { type: "ask"},
               // i can call walk to door through this!
               { who: "hero", type: "walk",  direction: "up" },
             ]
-          }
+          } // set off the next event??
         ]
       }),
       npcB: new Person({
