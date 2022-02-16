@@ -34,6 +34,7 @@ class PizzaStone extends GameObject{
                     { type: "textMessage", text: "Approaching the legendary pizza stone..."},
                     { type: "craftingMenu", pizzas: this.pizzas },
                     { type: "addStoryFlag", flag: this.storyFlag },
+                    { type: "textMessage", text: "You just made a pizza!"}
                     ]
             }
         ]
