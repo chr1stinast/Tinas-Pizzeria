@@ -2,6 +2,7 @@ class OverworldEvent {
   constructor({ map, event}) {
     this.map = map;
     this.event = event;
+    this.submission = 1;
   }
 
   stand(resolve) {
@@ -87,7 +88,6 @@ class OverworldEvent {
   }
 
   talk(resolve) {
-    //console.log("PAUSE NOW!");
     this.map.isPaused = true;
     const menu = new ZTalkExp({
       optionA: this.event.optionA,
@@ -103,9 +103,45 @@ class OverworldEvent {
         resolve();
         this.map.isPaused = false;
         this.map.overworld.startGameLoop();
+        this.map.submission = menu.getIndex();
+        console.log(this.map.submission);
+        if (this.map.submission == 1) {
+          const message = new TextMessage({
+            text: this.event.ans1,
+            onComplete: () => resolve()
+          })
+          message.init( document.querySelector(".game-container") )
+        }
+        else if (this.map.submission == 2) {
+          const message = new TextMessage({
+            text: this.event.ans2,
+            onComplete: () => resolve()
+          })
+          message.init( document.querySelector(".game-container") )
+        }
+        else if (this.map.submission == 3) {
+          const message = new TextMessage({
+            text: this.event.ans3,
+            onComplete: () => resolve()
+          })
+          message.init( document.querySelector(".game-container") )
+        }
       }
     });
     menu.init(document.querySelector(".game-container"));
+  }
+
+  ask(resolve) {
+    // target = this.event.target, // problem is with these..
+    // answer = this.event.answer,
+    if (this.map.submission == 1) {
+      const message = new TextMessage({
+        text: "hi",
+        onComplete: () => resolve()
+      })
+      message.init( document.querySelector(".game-container") )
+    }
+    resolve();
   }
 
   // choice() {
