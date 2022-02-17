@@ -35,10 +35,17 @@ class PlayerState {
         { actionId: "item_recoverHp", instanceId: "item2" },
         { actionId: "item_recoverHp", instanceId: "item3" },
       ]
-      // allos to set story flags to true from the get go
+      // allows to set story flags to true from the get go
       this.storyFlags = {
           // "DID_SOMETHING": true,
         // TALKED_TO_ERIO: false
+        "TUTORIAL": true,
+        "P1": true,
+        "HUNGRY_NOT_SERVED": true,
+        // FOR PLAYTESTING PURPOSES
+        "USED_PIZZA_STONE": true,
+        "TUT_DONE": true
+
       };
     }
 

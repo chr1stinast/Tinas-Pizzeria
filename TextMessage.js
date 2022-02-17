@@ -1,6 +1,7 @@
 class TextMessage {
-  constructor({ text, onComplete }) {
+  constructor({ text, audioloc, onComplete }) {
     this.text = text;
+    this.audioloc = audioloc;
     this.onComplete = onComplete;
     this.element = null;
   }
@@ -16,7 +17,8 @@ class TextMessage {
       `)
     this.revealingText = new RevealingText({
       element: this.element.querySelector(".TextMessage_p"),
-      text: this.text
+      text: this.text,
+      audioloc: this.audioloc
     })
 
     this.element.querySelector("button").addEventListener("click", () => {

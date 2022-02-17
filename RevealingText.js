@@ -2,6 +2,7 @@ class RevealingText{
     constructor(config) {
         this.element = config.element;
         this.text = config.text;
+        this.audioloc = config.audioloc || "asr";
         this.speed = config.speed || 70;
 
         this.timeout = null;
@@ -14,11 +15,20 @@ class RevealingText{
 
         if (list.length > 0) {
             this.timeout = setTimeout(() => {
+                // this.mySound.play();
+                if (next != " " && next != "!" && next != "?" && next != "." && next != ",") {
+                    this.play();
+                }
                 this.revealOneCharacter(list)
             }, next.delayAfter)
         } else {
             this.isDone = true;
         }
+    }
+
+    play() {
+        var audio = new Audio("Sounds/snd_txt"+this.audioloc+".wav");
+        audio.play();
     }
 
     warpToDone() {

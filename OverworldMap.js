@@ -88,7 +88,12 @@ class OverworldMap {
     const hero = this.gameObjects["hero"];
     const match = this.cutsceneSpaces[ `${hero.x},${hero.y}` ];
     if (!this.isCutscenePlaying && match) {
-      this.startCutscene( match[0].events )
+      const relevantScenario = match.find(scenario => {
+        return (scenario.required || []).every(sf => {
+          return playerState.storyFlags[sf]
+        })
+      })
+      relevantScenario && this.startCutscene(relevantScenario.events)
     }
   }
 
@@ -171,27 +176,27 @@ window.OverworldMaps = {
         ],
         talking: [
           {
-            required: ["MARIA1", "MARIA2", "MARIA3"],
+            required: ["MARIA0", "MARIA1", "MARIA2", "MARIA3"],
             events: [
-              { type: "textMessage", text: "you know, I think you have an unhealthy obsession with Maria.", faceHero: "npcA"},
+              { type: "textMessage", text: "you know, I think you have an unhealthy obsession with Maria.", audioloc: "sans", faceHero: "npcA"},
             ]
           },
           {
             required: ["MARIA3"],
             events: [
-              { type: "textMessage", text: "...You know, you're really getting on my nerves.", faceHero: "npcA"},
+              { type: "textMessage", text: "...You know, you're really getting on my nerves.", audioloc: "sans", faceHero: "npcA"},
             ]
           },
           {
             required: ["YAY"],
             events: [
-              { type: "textMessage", text: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", faceHero: "npcA"},
+              { type: "textMessage", text: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", audioloc: "sans", faceHero: "npcA"},
             ]
           },
           {
             required: ["BOO"],
             events: [
-              { type: "textMessage", text: "oh.. well im sorry i put you through that.", faceHero: "npcA"},
+              { type: "textMessage", text: "oh.. well im sorry i put you through that.", audioloc: "sans", faceHero: "npcA"},
             ]
           },
           {
@@ -201,7 +206,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "WELL?? HOW DID IT GO?", faceHero: "npcA"},
               { type: "talk", optionA: "That was absolutely horrid. I broke his heart", optionB: "I accepted!! We're together now!", optionC: "maria's a flop", 
               description: "Maria wants to know how the confession went!", ans1: "oh.. well im sorry i put you through that.", ans2: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", ans3: "...You know, you're really getting on my nerves.",
-              flag1: "BOO", flag2: "YAY", flag3: "MARIA3"},
+              flag1: "BOO", flag2: "YAY", flag3: "MARIA3", audioloc: "sans"},
             ]
           },
           {
@@ -211,7 +216,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "WELL?? HOW DID IT GO?", faceHero: "npcA"},
               { type: "talk", optionA: "That was absolutely horrid. I broke his heart", optionB: "I accepted!! We're together now!", optionC: "maria's a flop", 
               description: "Maria wants to know how the confession went!", ans1: "oh.. well im sorry i put you through that.", ans2: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", ans3: "...You know, you're really getting on my nerves.",
-              flag1: "BOO", flag2: "YAY", flag3: "MARIA3"},
+              flag1: "BOO", flag2: "YAY", flag3: "MARIA3", audioloc: "sans"},
             ]
           },
           {
@@ -221,32 +226,60 @@ window.OverworldMaps = {
               { type: "textMessage", text: "WELL?? HOW DID IT GO?", faceHero: "npcA"},
               { type: "talk", optionA: "That was absolutely horrid. I broke his heart", optionB: "I accepted!! We're together now!", optionC: "maria's a flop", 
               description: "Maria wants to know how the confession went!", ans1: "oh.. well im sorry i put you through that.", ans2: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", ans3: "...You know, you're really getting on my nerves.",
-              flag1: "BOO", flag2: "YAY", flag3: "MARIA3"},
+              flag1: "BOO", flag2: "YAY", flag3: "MARIA3", audioloc: "sans"}, //
             ]
           },
           {
             required: ["OK"],
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "well?? what are you waiting for?? go talk to him!", faceHero: "npcA"}
+              { type: "textMessage", text: "well?? what are you waiting for?? go talk to him!", audioloc: "sans", faceHero: "npcA"}
             ]
           },
           {
             required: ["MARIA1"],
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "well?? what are you waiting for?? go talk to him!", faceHero: "npcA"}
+              { type: "textMessage", text: "well?? what are you waiting for?? go talk to him!", audioloc: "sans", faceHero: "npcA"}
             ]
           },
           {
             // maybe they say something in one point of the game but say something else after another point in the game
             // wonderful tool to insert easter eggs
             events: [
-              { type: "textMessage", text: "Have you talked to Mika yet?", faceHero: "npcA" },
-              { type: "textMessage", text: "He's waiting for you outside"},
+              { type: "textMessage", text: "Have you talked to Mika yet?", audioloc: "sans", faceHero: "npcA" },
+              { type: "textMessage", text: "He's waiting for you outside", audioloc: "sans"},
               { type: "talk", optionA: "Only for you mar mar", optionB: "ew what the heck no", optionC: "maria's a flop", 
                 description: "Go talk to Mika?", ans1: "Wonderful! Well I'll be here waiting! Tell me how it goes!", ans2: "Well that's rude. But just don't let him hear you say that.", ans3: "Um... ok?",
-                flag1: "OK", flag2: "OK", flag3: "MARIA1"}, // work from here//TODO: just offer scenario instead of options
+                flag1: "OK", flag2: "OK", flag3: "MARIA1", audioloc: "sans"}, // work from here//TODO: just offer scenario instead of options
+                // { type: "ask", target: 1, answer: "yayy"},
+              // { type: "ask", target: 2, answer: "k."},
+              // { type: "ask", target: 3, answer: "ok?"},
+              // { type: "ask"},
+              // i can call walk to door through this!
+              { who: "hero", type: "walk",  direction: "up" },
+            ]
+          } // set off the next event??
+        ]
+      }),
+      hungryMate: new Person({
+        x: utils.withGrid(6),
+        y: utils.withGrid(12),
+        src: "/images/characters/people/npc1.png",
+        behaviorLoop: [ // makes behavior loops for characters
+          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "up", time: 800 },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "up", time: 300 }
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "Have you talked to Mika yet?", audioloc: "sans", faceHero: "npcA" },
+              { type: "textMessage", text: "He's waiting for you outside", audioloc: "sans"},
+              { type: "talk", optionA: "Only for you mar mar", optionB: "ew what the heck no", optionC: "maria's a flop", 
+                description: "Go talk to Mika?", ans1: "Wonderful! Well I'll be here waiting! Tell me how it goes!", ans2: "Well that's rude. But just don't let him hear you say that.", ans3: "Um... ok?",
+                flag1: "OK", flag2: "OK", flag3: "MARIA1", audioloc: "sans"}, // work from here//TODO: just offer scenario instead of options
                 // { type: "ask", target: 1, answer: "yayy"},
               // { type: "ask", target: 2, answer: "k."},
               // { type: "ask", target: 3, answer: "ok?"},
@@ -266,8 +299,8 @@ window.OverworldMaps = {
         //   { type: "stand", direction: "up", time: 800 },
         //   { type: "walk", diretion: "right"},
         //   { type: "walk", diretion: "down"},
-        // ]
-      }),
+        // ] // causes a really weird and severe bug
+      })
       // pizzaStone: new PizzaStone ({
       //   x: utils.withGrid(4),
       //   y: utils.withGrid(7),
@@ -321,15 +354,66 @@ window.OverworldMaps = {
     cutsceneSpaces: {
       [utils.asGridCoord(7,4)]: [
         {
-          // bug: hero can keep walking even after event is triggered
+          required: ["HUNGRY_SERVED"],
           events: [
             { type: "changeMap", map: "Kitchen" }
-            // { who: "npcB", type: "walk",  direction: "left" },
-            // { who: "npcB", type: "stand",  direction: "up", time: 500 },
-            // { type: "textMessage", text:"You can't be in there!"},
-            // { who: "npcB", type: "walk",  direction: "right" },
-            // { who: "hero", type: "walk",  direction: "down" },
-            // { who: "hero", type: "walk",  direction: "left" },
+          ]
+        },
+        {
+          events: [
+            { type: "textMessage", text: "UH OH, I SHOULD PROBABLY CHECK IN ON HER...", audioloc: "1" },
+          ]
+        }
+      ],
+      [utils.asGridCoord(7,5)]: [
+        {
+          required: ["HUNGRY_NOT_SERVED"],
+          events: [
+            { type: "textMessage", text: "MY OH MY", audioloc: "sans2" },
+            // { who: "hungryMate", type: "walk",  direction: "up"},
+            // { who: "hungryMate", type: "walk",  direction: "up"},
+            // { who: "hungryMate", type: "walk",  direction: "up"},
+            { type: "textMessage", text: "NEVER IN MY 23 YEARS OF LIVING HAVE I EVER", audioloc: "sans2" },
+            { type: "textMessage", text: "E V E R", audioloc: "sans2" },
+            { type: "textMessage", text: "EXPERIENCED SUCH TERRIBLE CUSTOMER EXPERIENCE.", audioloc: "sans2" },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 200 },
+            { type: "textMessage", text: "WHY, THIS IS ABSOLUTELY HORRID.", audioloc: "sans2" },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 200 },
+            { type: "textMessage", text: "NOT A SINGLE CHAIR OFFERED TO ME, NO NOTHING", audioloc: "sans2" },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 200 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 200 },
+            { type: "textMessage", text: "WHY, IT FEELS AS IF I AM LOSING MY MIND.", audioloc: "sans2" },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 100 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 100 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 100 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 100 },
+            { type: "textMessage", text: "I AM SO...", audioloc: "sans2" },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 50 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 50 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 50 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 50 },
+            { type: "textMessage", text: "SOOOO", audioloc: "sans2" },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "down", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "right", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "left", time: 10 },
+            // { who: "hungryMate", type: "stand", direction: "up", time: 10 },
+            { type: "textMessage", text: "HUNGRYYYYYY", audioloc: "sans2" },
           ]
         }
       ],
@@ -340,13 +424,6 @@ window.OverworldMaps = {
           ]
         }
       ],
-      // [utils.asGridCoord(5,7)]:[
-      //   {
-      //     events: [
-      //       { who: "hero", type: "walk", direction: "left" }
-      //     ]
-      //   }
-      // ]
     }
     
   },
@@ -367,27 +444,40 @@ window.OverworldMaps = {
         
         talking: [
           {
-            required: ["TALKED_TO_CHEF_FLOP"],
+            required: ["TUTORIAL","USED_PIZZA_STONE"],
             events: [
-              // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "KEEP MAKING PIZZAS!", faceHero: "npcC"},
+              { type: "textMessage", text: "WOW, YOU MADE THAT??", audioloc: "tor", faceHero: "npcC"},
+              { type: "textMessage", text: "WOW... CHEF TINA.... I DONT SAY THIS LIGHTLY BUT", audioloc: "tor"},
+              { type: "textMessage", text: "IM REALLY PROUD OF YOU", audioloc: "tor"},
+              { type: "textMessage", text: "YOU'RE LIKE THE DAUGHTER I NEVER HAD...", audioloc: "tor"},
+              { type: "talk", optionA: "um... okay?", optionB: "and you're like the mom i have had, chef flop number 75!", optionC: "maria's a flop", description: "Chef flop number 75 is approving of you!",
+              ans1: "...JUST GET BACK TO MAKING PIZZAS KIDDO.", flag1: "TUT_DONE", ans2: "HE HE, TAKE CARE OF YOURSELF OUT THERE KIDDO.", flag2: "TUT_DONE", ans3: "HE HE, YOU'RE A WEIRD ONE, KIDDO.", flag3: "MARIA0"},
+              { type: "removeStoryFlag", flag: "TUTORIAL"},
+              { type: "addStoryFlag", flag: "READY"},
               { who: "npcC", type: "stand",  direction: "up"}
             ]
           },
           {
-            // maybe they say something in one point of the game but say something else after another point in the game
-            // wonderful tool to insert easter eggs
+            required: ["P1", "TUTORIAL"],
             events: [
-              
-              { type: "textMessage", text: "CHEF FLOP JUST GOT FIRED!", faceHero: "npcC"},
-              { type: "textMessage", text: "We need somebody to take over...", faceHero: "npcC"},
-              { type: "textMessage", text: "YOU'RE IN CHARGE!", faceHero: "npcC"},
-              { type: "textMessage", text: "What?! But I'm not qualified!", faceHero: "npcC"},
-              { type: "textMessage", text: "IT DOESN'T MATTER! START COOKING PIZZAS!", faceHero: "npcC"},
+              { type: "textMessage", text: "CHEF FLOP NUMBER 74 JUST GOT FIRED!", audioloc: "tor", faceHero: "npcC"},
+              { type: "textMessage", text: "WE NEED SOMEBODY TO TAKE OVER...", audioloc: "tor"},
+              { type: "textMessage", text: "YOU'RE IN CHARGE!", audioloc: "tor"},
+              { type: "textMessage", text: "What?! But I'm not qualified!", audioloc: "1"},
+              { type: "textMessage", text: "IT DOESN'T MATTER! START COOKING PIZZAS!", audioloc: "tor"},
+              { type: "textMessage", text: "COME BACK TO TALK TO ME ONCE YOU'RE DONE.", audioloc: "tor"},
               { who: "npcC", type: "walk",  direction: "up"},
-              {type: "addStoryFlag", flag: "TALKED_TO_CHEF_FLOP"}
+              { type: "addStoryFlag", flag: "TALKED_TO_CHEF_FLOP"},
+              { type: "removeStoryFlag", flag: "P1"}
             ]
-          }
+          },
+          {
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "KEEP MAKING PIZZAS!", audioloc: "tor", faceHero: "npcC"},
+              { who: "npcC", type: "stand",  direction: "up"}
+            ]
+          },
         ]
       }),
       pizzaStone: new PizzaStone({
@@ -445,10 +535,29 @@ window.OverworldMaps = {
     cutsceneSpaces: {
       [utils.asGridCoord(5,10)]: [
         {
+          required: ["TUT_DONE"],
           events: [
             { type: "changeMap", map: "DemoRoom" }
           ]
+        },
+        {
+          required: ["MARIA0"],
+          events: [
+            { type: "changeMap", map: "DemoRoom" }
+          ]
+        },
+        {
+          required: ["TALKED_TO_CHEF_FLOP"],
+          events: [
+            { type: "textMessage", text:"I should probably make my first pizza first", audioloc: "1"}
+          ]
+        },
+        {
+          events: [
+            { type: "textMessage", text:"I should probably see what chef flop wants first", audioloc: "1"}
+          ]
         }
+        
       ],
     },
   },

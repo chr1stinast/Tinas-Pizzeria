@@ -54,6 +54,7 @@ class OverworldEvent {
     }
 
     const message = new TextMessage({
+      audioloc: this.event.audioloc,
       text: this.event.text,
       onComplete: () => resolve()
     })
@@ -107,6 +108,7 @@ class OverworldEvent {
         console.log(this.map.submission);
         if (this.map.submission == 1) {
           const message = new TextMessage({
+            audioloc: this.event.audioloc || "asr",
             text: this.event.ans1,
             onComplete: () => resolve()
           })
@@ -115,6 +117,7 @@ class OverworldEvent {
         }
         else if (this.map.submission == 2) {
           const message = new TextMessage({
+            audioloc: this.event.audioloc,
             text: this.event.ans2,
             onComplete: () => resolve()
           })
@@ -123,6 +126,7 @@ class OverworldEvent {
         }
         else if (this.map.submission == 3) {
           const message = new TextMessage({
+            audioloc: this.event.audioloc,
             text: this.event.ans3,
             onComplete: () => resolve()
           })
@@ -175,6 +179,11 @@ class OverworldEvent {
 
   addStoryFlag(resolve) {
     window.playerState.storyFlags[this.event.flag] = true;
+    resolve();
+  }
+
+  removeStoryFlag(resolve) {
+    window.playerState.storyFlags[this.event.flag] = false;
     resolve();
   }
 
