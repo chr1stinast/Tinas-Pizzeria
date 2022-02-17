@@ -171,10 +171,71 @@ window.OverworldMaps = {
         ],
         talking: [
           {
-            required: ["TALKED_TO_MIKA"],
+            required: ["MARIA1", "MARIA2", "MARIA3"],
+            events: [
+              { type: "textMessage", text: "you know, I think you have an unhealthy obsession with Maria.", faceHero: "npcA"},
+            ]
+          },
+          {
+            required: ["MARIA3"],
+            events: [
+              { type: "textMessage", text: "...You know, you're really getting on my nerves.", faceHero: "npcA"},
+            ]
+          },
+          {
+            required: ["YAY"],
+            events: [
+              { type: "textMessage", text: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", faceHero: "npcA"},
+            ]
+          },
+          {
+            required: ["BOO"],
+            events: [
+              { type: "textMessage", text: "oh.. well im sorry i put you through that.", faceHero: "npcA"},
+            ]
+          },
+          {
+            required: ["MARIA2"],
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "I'm sorry I put you through that.", faceHero: "npcA"}
+              { type: "textMessage", text: "WELL?? HOW DID IT GO?", faceHero: "npcA"},
+              { type: "talk", optionA: "That was absolutely horrid. I broke his heart", optionB: "I accepted!! We're together now!", optionC: "maria's a flop", 
+              description: "Maria wants to know how the confession went!", ans1: "oh.. well im sorry i put you through that.", ans2: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", ans3: "...You know, you're really getting on my nerves.",
+              flag1: "BOO", flag2: "YAY", flag3: "MARIA3"},
+            ]
+          },
+          {
+            required: ["SUCCESS"],
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "WELL?? HOW DID IT GO?", faceHero: "npcA"},
+              { type: "talk", optionA: "That was absolutely horrid. I broke his heart", optionB: "I accepted!! We're together now!", optionC: "maria's a flop", 
+              description: "Maria wants to know how the confession went!", ans1: "oh.. well im sorry i put you through that.", ans2: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", ans3: "...You know, you're really getting on my nerves.",
+              flag1: "BOO", flag2: "YAY", flag3: "MARIA3"},
+            ]
+          },
+          {
+            required: ["FAIL"],
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "WELL?? HOW DID IT GO?", faceHero: "npcA"},
+              { type: "talk", optionA: "That was absolutely horrid. I broke his heart", optionB: "I accepted!! We're together now!", optionC: "maria's a flop", 
+              description: "Maria wants to know how the confession went!", ans1: "oh.. well im sorry i put you through that.", ans2: "YAY. WHOS THE ULTIMATE CUPID NOW HUH??? ITS ME. ITS ME. ITS ME.", ans3: "...You know, you're really getting on my nerves.",
+              flag1: "BOO", flag2: "YAY", flag3: "MARIA3"},
+            ]
+          },
+          {
+            required: ["OK"],
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "well?? what are you waiting for?? go talk to him!", faceHero: "npcA"}
+            ]
+          },
+          {
+            required: ["MARIA1"],
+            events: [
+              // { type: "textMessage", text: "...", faceHero: "npcA"},
+              { type: "textMessage", text: "well?? what are you waiting for?? go talk to him!", faceHero: "npcA"}
             ]
           },
           {
@@ -184,7 +245,8 @@ window.OverworldMaps = {
               { type: "textMessage", text: "Have you talked to Mika yet?", faceHero: "npcA" },
               { type: "textMessage", text: "He's waiting for you outside"},
               { type: "talk", optionA: "Only for you mar mar", optionB: "ew what the heck no", optionC: "maria's a flop", 
-                description: "Go talk to Mika?", ans1: "ily :)", ans2: "D:<", ans3: "um... ok?"}, // work from here//TODO: just offer scenario instead of options
+                description: "Go talk to Mika?", ans1: "Wonderful! Well I'll be here waiting! Tell me how it goes!", ans2: "Well that's rude. But just don't let him hear you say that.", ans3: "Um... ok?",
+                flag1: "OK", flag2: "OK", flag3: "MARIA1"}, // work from here//TODO: just offer scenario instead of options
                 // { type: "ask", target: 1, answer: "yayy"},
               // { type: "ask", target: 2, answer: "k."},
               // { type: "ask", target: 3, answer: "ok?"},
@@ -407,10 +469,26 @@ window.OverworldMaps = {
         src: "/images/characters/people/Mika.png",
         talking: [
           {
-            required: ["TALKED_TO_MIKA"],
+            required: ["MARIA2"],
             events: [
               { type: "textMessage", text: "...", faceHero: "npcB"},
-              { type: "textMessage", text: "Just forget I said anything."}
+              { type: "textMessage", text: "If you're not going to take me seriously just forget I said anything."}
+            ]
+          },
+          {
+            required: ["SUCCESS"],
+            events: [
+              { type: "textMessage", text: "I love you! I'm in love! we should get married!", faceHero: "npcB"},
+              { type: "textMessage", text: "You are the only one for me. Every night I lay awake just thinking of how much I love you."},
+              { type: "textMessage", text: "Please... never leave me... I love you so dearly."}
+            ]
+          },
+          {
+            required: ["FAIL"],
+            events: [
+              { type: "textMessage", text: "well?? have you changed your mind??", faceHero: "npcB"},
+              { type: "talk", optionA: "no", optionB: "yes", optionC: "maria's a flop", description: "Mika is confessing to you!... again.",
+              ans1: "then leave me alone.", flag1: "FAIL", ans2: "OMGOMGOMGOGMG YAYYAYAY.", flag2: "SUCCESS", ans3: "...I hate you. I hope you know that.", flag3: "MARIA"}
             ]
           },
           {
@@ -418,12 +496,13 @@ window.OverworldMaps = {
               { type: "textMessage", text: "You made it!", faceHero:"npcB" }, //faceHEro refers to who the hero should face
               { type: "textMessage", text: "I'm so happy you're here, now I can finally confess!" },
               { type: "textMessage", text: "I... I... I love you..." },
-              { type: "talk", optionA: "ha ha! absolutely not!", optionB: "I... I love you too!!!", optionC: "maria's a flop", description: "Mika is confessing to you!"},
+              { type: "talk", optionA: "ha ha! absolutely not!", optionB: "I... I love you too!!!", optionC: "maria's a flop", description: "Mika is confessing to you!",
+              ans1: "oh...", flag1: "FAIL", ans2: "OMGOMGOMGOGMG YAY.", flag2: "SUCCESS", ans3: "what?? what does that mean... I love you...", flag3: "MARIA2"}
               // { who: "hero", type: "walk",  direction: "left" },
               // { who: "hero", type: "walk",  direction: "up" },
               // walkToDoor(5*16, 9*16),
-              { type: "changeMap", map: "DemoRoom" },
-              {type: "addStoryFlag", flag: "TALKED_TO_MIKA"}
+              // { type: "changeMap", map: "DemoRoom" },
+              // {type: "addStoryFlag", flag: "TALKED_TO_MIKA"}
               // walkToDoor(5*16, 9*16)
             ]
           }

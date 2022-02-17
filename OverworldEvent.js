@@ -110,6 +110,7 @@ class OverworldEvent {
             text: this.event.ans1,
             onComplete: () => resolve()
           })
+          window.playerState.storyFlags[this.event.flag1] = true;
           message.init( document.querySelector(".game-container") )
         }
         else if (this.map.submission == 2) {
@@ -117,6 +118,7 @@ class OverworldEvent {
             text: this.event.ans2,
             onComplete: () => resolve()
           })
+          window.playerState.storyFlags[this.event.flag2] = true;
           message.init( document.querySelector(".game-container") )
         }
         else if (this.map.submission == 3) {
@@ -124,6 +126,7 @@ class OverworldEvent {
             text: this.event.ans3,
             onComplete: () => resolve()
           })
+          window.playerState.storyFlags[this.event.flag3] = true;
           message.init( document.querySelector(".game-container") )
         }
       }
