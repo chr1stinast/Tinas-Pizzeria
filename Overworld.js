@@ -88,7 +88,7 @@ class Overworld {
     })
     await this.titleScreen.init(container);
 
-   this.startMap(window.OverworldMaps.DemoRoom);
+  this.startMap(window.OverworldMaps.DemoRoom);
   
   
    this.bindActionInput();
@@ -98,32 +98,33 @@ class Overworld {
    this.directionInput.init();
   
    this.startGameLoop();
+   
   
   
-   this.map.startCutscene([  
-     { type: "textMessage", text: "Hi! I'm Tina, an aspiring pizza chef."},
-     { type: "textMessage", text: "I hope to run my own pizzeria one day...but for now I'm just a dishwasher :("},
-     { who: "npcB", type: "walk",  direction: "left" },
-     { who: "npcB", type: "walk",  direction: "left" }, 
-     { who: "npcB", type: "walk",  direction: "down" },
-     { who: "npcB", type: "walk",  direction: "down" },  
-     { who: "npcB", type: "walk",  direction: "left" }, 
-     { who: "npcB", type: "stand",  direction: "up"},
-     { type: "textMessage", text:"TINA! Back to work. NOW!"},
-     { type: "textMessage", text:"Yes sir... :("},
-     { who: "npcB", type: "walk",  direction: "right"},
-     { who: "npcB", type: "walk",  direction: "up"},
-     { who: "npcB", type: "walk",  direction: "up"},
-     { who: "npcB", type: "walk",  direction: "right"},
-     { who: "npcB", type: "walk",  direction: "right"},
-     { who: "npcB", type: "stand",  direction: "down"},
-     { who: "hero", type: "walk",  direction: "up" }, 
-     { who: "hero", type: "walk",  direction: "right" }, 
-     { who: "hero", type: "walk",  direction: "right" }, 
-     { who: "hero", type: "walk",  direction: "up" }, 
-     { type: "changeMap", map: "Kitchen" },
-     { type: "textMessage", text:"TINA!"},
-   ])
+  //  this.map.startCutscene([ 
+  //    { type: "textMessage", text: "Hi! I'm Tina, an aspiring pizza chef."},
+  //    { type: "textMessage", text: "I hope to run my own pizzeria one day...but for now I'm just a dishwasher :("},
+  //    { who: "npcB", type: "walk",  direction: "left" },
+  //    { who: "npcB", type: "walk",  direction: "down" }, 
+  //    { who: "npcB", type: "walk",  direction: "left" },
+  //    { who: "npcB", type: "walk",  direction: "down" },  
+  //    { who: "npcB", type: "walk",  direction: "left" }, 
+  //    { who: "npcB", type: "stand",  direction: "up"},
+  //    { type: "textMessage", text:"TINA! Back to work. NOW!"},
+  //    { type: "textMessage", text:"Yes sir... :("},
+  //    { who: "npcB", type: "walk",  direction: "right"},
+  //    { who: "npcB", type: "walk",  direction: "up"},
+  //    { who: "npcB", type: "walk",  direction: "right"},
+  //    { who: "npcB", type: "walk",  direction: "up"},
+  //    { who: "npcB", type: "walk",  direction: "right"},
+  //    { who: "npcB", type: "stand",  direction: "down"},
+  //    { who: "hero", type: "walk",  direction: "right" }, 
+  //    { who: "hero", type: "walk",  direction: "right" }, 
+  //    { who: "hero", type: "walk",  direction: "up" }, 
+  //    { who: "hero", type: "walk",  direction: "up" }, 
+  //    { type: "changeMap", map: "Kitchen" },
+  //    { type: "textMessage", text:"TINA!"},
+  //  ])
   
     const order1 = new Order("Pepperoni", 5, 60, 1);
     order1.displayInfo();
