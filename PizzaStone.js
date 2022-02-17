@@ -39,7 +39,7 @@ class PizzaStone extends GameObject{
             },
             {
                 events: [
-                    { type: "textMessage", text: "I need to talk to chef flop first", audioloc: "1"}
+                    { type: "textMessage", text: "I need to talk to Chef f=Flop first.", audioloc: "1"}
                 ]
             }
         ]

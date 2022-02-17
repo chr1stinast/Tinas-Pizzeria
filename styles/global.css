@@ -11,7 +11,14 @@
 * {
   box-sizing:border-box;
 }
+@font-face {
+  font-family: font;
+  src: url(font.ttf);
+}
 
+html {
+  font-family: font;
+}
 body {
   background-image: url("galaxy3.jpg");
   height: 700px;

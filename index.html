@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tina's Pizzeria</title>
-    
-    <link href="/styles/global.css" type="text/css" rel="stylesheet">
-    <link href="/styles/TextMessage.css" type="text/css" rel="stylesheet">
-    <!-- <link href="/styles/Hud.css" type="text/css" rel="stylesheet"> -->
-    <link href="/styles/KeyboardMenu.css" type="text/css" rel="stylesheet">
-    <link href="/styles/Menus.css" type="text/css" rel="stylesheet">
-    <link href="/styles/SceneTransition.css" type="text/css" rel="stylesheet">
-    <link href="/styles/TitleScreen.css" type="text/css" rel="stylesheet">
-    <iframe width="100%" height="0" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/998583982&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-643138954" title="cyrus" target="_blank" style="color: #cccccc; text-decoration: none;">cyrus</a> · <a href="https://soundcloud.com/user-643138954/undertale-fallen-down-slowedreverb-one-hour-version" title="Undertale- Fallen Down (slowed+reverb) One Hour Version" target="_blank" style="color: #cccccc; text-decoration: none;">Undertale- Fallen Down (slowed+reverb) One Hour Version</a></div>    <style>
-      body {
-        background-image: url("images/spaceOmori.jpg"); 
-      }
-    </style>
-    <div class="game-container">
-      <canvas class="game-canvas" width="352" height="198"></canvas>
-      <script src="/Content/pizzas.js"></script>
-      <script src="/utils.js"></script>
-      <script src="/DirectionInput.js"></script>
-      <script src="/GameObject.js"></script>
-      <script src="/Person.js"></script>
-      <script src="/PizzaStone.js"></script>
-      <script src="/Sprite.js"></script>
-      <script src="/Player.js"></script>
-      <script src="/Order.js"></script>
-      <script src="/OverworldMap.js"></script>
-      <script src="/OverworldEvent.js"></script>
-      <script src="/Overworld.js"></script>
-      <script src = "/TextMessage.js"></script>
-      <script src = "/KeyboardMenu.js"></script>
-      <script src = "/ZTalkExp.js"></script>
-      <script src = "/ZSubmissionMenu.js"></script>
-      <script src = "/Zactions.js"></script>
-      <script src = "/KeyPressListener.js"></script>
-      <script src = "/RevealingText.js"></script>
-      <script src="/State/PlayerState.js"></script>
-      <script src = "/SceneTransition.js"></script>
-      <script src = "/TitleScreen.js"></script>
-      <!-- <script src = "/Progress.js"></script> -->
-      <!-- <script src = "/Hud.js"></script> -->
-      <script src = "/PauseMenu.js"></script>
-      <script src = "/CraftingMenu.js"></script>
-      <script src="/init.js"></script>
-  </body>
+
+<head>
+  <title>Tina's Pizzeria</title>
+
+  <link href="/styles/global.css" type="text/css" rel="stylesheet">
+  <link href="/styles/TextMessage.css" type="text/css" rel="stylesheet">
+  <!-- <link href="/styles/Hud.css" type="text/css" rel="stylesheet"> -->
+  <link href="/styles/KeyboardMenu.css" type="text/css" rel="stylesheet">
+  <link href="/styles/Menus.css" type="text/css" rel="stylesheet">
+  <link href="/styles/SceneTransition.css" type="text/css" rel="stylesheet">
+  <link href="/styles/TitleScreen.css" type="text/css" rel="stylesheet">
+  <link href="/styles/tips.css" type="text/css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("images/spaceOmori.jpg");
+    }
+  </style>
+</head>
+
+<body>
+  <embed name="GoodEnough" src="music.mp3" loop="false" hidden="true" autostart="true">
+  <div class="game-container">
+    <canvas class="game-canvas" width="352" height="198"></canvas>
+    <p id="tip"></p>
+    <script src="/Content/pizzas.js"></script>
+    <script src="/utils.js"></script>
+    <script src="/DirectionInput.js"></script>
+    <script src="/GameObject.js"></script>
+    <script src="/Person.js"></script>
+    <script src="/PizzaStone.js"></script>
+    <script src="/Sprite.js"></script>
+    <script src="/Player.js"></script>
+    <script src="/Order.js"></script>
+    <script src="/OverworldMap.js"></script>
+    <script src="/OverworldEvent.js"></script>
+    <script src="/Overworld.js"></script>
+    <script src="/TextMessage.js"></script>
+    <script src="/KeyboardMenu.js"></script>
+    <script src="/ZTalkExp.js"></script>
+    <script src="/ZSubmissionMenu.js"></script>
+    <script src="/Zactions.js"></script>
+    <script src="/KeyPressListener.js"></script>
+    <script src="/RevealingText.js"></script>
+    <script src="/State/PlayerState.js"></script>
+    <script src="/SceneTransition.js"></script>
+    <script src="/TitleScreen.js"></script>
+    <!-- <script src = "/Progress.js"></script> -->
+    <!-- <script src = "/Hud.js"></script> -->
+    <script src="/PauseMenu.js"></script>
+    <script src="/CraftingMenu.js"></script>
+    <script src="/init.js"></script>
+</body>
+
 </html>
