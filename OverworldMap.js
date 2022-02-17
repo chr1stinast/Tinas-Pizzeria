@@ -399,7 +399,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "I.", audioloc: "sans2" },
               { type: "textMessage", text: "NEED.", audioloc: "sans2" },
               { type: "textMessage", text: "FOOOOOOOOOOOOOOOOD.", audioloc: "sans2" },
-              { type: "talk", optionA: "Most certainly ma'am! Why don't you take a sit right here?", optionB: "Of course! And would you like that with a nice side of attitude and a seasoning of disrespect?", optionC: "maria's a flop", 
+              { type: "talk", optionA: "Most certainly ma'am!", optionB: "Would you like that with a nice side of attitude?", optionC: "maria's a flop", 
                 description: "The hungry customer wants food!", ans1: "Finally, some decent service around here. Now fetch me a pizza won't you", ans2: "Oh ho ho, you're going to regret saying that.", ans3: "...I'll sit myself down. Just get me my food will you.",
                 flag1: "FOOD", flag2: "END", flag3: "MARIA4", audioloc: "sans2"},
               { who: "hungryMate", type: "walk",  direction: "right" },

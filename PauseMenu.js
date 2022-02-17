@@ -8,20 +8,20 @@ class PauseMenu {
         // Case 1: Show the first page of options
         if (pageKey === "root") {
             // doesn't work yet -- uses code from battle (i think)
-            const lineupPizzas = playerState.lineup.map(id => {
-                const {pizzaId} = playerState.pizzas[id];
-                const base = Pizzas[pizzaId];
-                return {
-                    label: base.name,
-                    description: base.description,
-                    handler: () => {
-                        this.keyboardMenu.setOptions( this.getOptions(id) )
-                    }
-                }
-            })
+            // const lineupPizzas = playerState.lineup.map(id => {
+            //     const {pizzaId} = playerState.pizzas[id];
+            //     const base = Pizzas[pizzaId];
+            //     return {
+            //         label: base.name,
+            //         description: base.description,
+            //         handler: () => {
+            //             this.keyboardMenu.setOptions( this.getOptions(id) )
+            //         }
+            //     }
+            // })
             return [
                 //All of our pizzas (dynamic)
-                ...lineupPizzas,
+                // ...lineupPizzas,
                 {
                     label: "Save",
                     description: "Save your progress",
