@@ -18,7 +18,7 @@ class PizzaStone extends GameObject{
             {
                 required: [this.storyFlag],
                 events: [
-                    { type: "textMessage", text: "You have already used this." }
+                    { type: "textMessage", text: "I already used this.", audioloc: "1" }
                 ],
                 // required: ["TALKED_TO_CHEF_FLOP"],
                 // events: [
@@ -28,14 +28,19 @@ class PizzaStone extends GameObject{
                 // ]
             },
             {
-                
+                required: ["TALKED_TO_CHEF_FLOP"],
                 events: [
                     // { type: "textMessage", text: "You're not allowed to use this."},
-                    { type: "textMessage", text: "Approaching the legendary pizza stone..."},
+                    { type: "textMessage", text: "Approaching the legendary pizza stone...", audioloc: "1"},
                     { type: "craftingMenu", pizzas: this.pizzas },
                     { type: "addStoryFlag", flag: this.storyFlag },
-                    { type: "textMessage", text: "You just made a pizza!"}
+                    { type: "textMessage", text: "I just made a pizza!", audioloc: "1"}
                     ]
+            },
+            {
+                events: [
+                    { type: "textMessage", text: "I need to talk to chef flop first", audioloc: "1"}
+                ]
             }
         ]
     }
