@@ -255,7 +255,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(7,0)] : true,
       [utils.asGridCoord(6,1)] : true,
       [utils.asGridCoord(6,2)] : true,
-    },
+    }, //
     cutsceneSpaces: {
       [utils.asGridCoord(7,4)]: [
         {
