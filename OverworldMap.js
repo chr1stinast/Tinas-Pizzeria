@@ -806,7 +806,7 @@ window.OverworldMaps = {
           {
             events: [
               // { type: "textMessage", text: "...", faceHero: "npcA"},
-              { type: "textMessage", text: "KEEP MAKING PIZZAS!", audioloc: "tor", faceHero: "npcC"},
+              { type: "textMessage", text: "KEEP WORKING HARD HUN!", audioloc: "tor", faceHero: "npcC"},
               { who: "npcC", type: "stand",  direction: "up"}
             ]
           },
