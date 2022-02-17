@@ -43,8 +43,8 @@ class PlayerState {
         "P1": true,
         "HUNGRY_NOT_SERVED": true,
         // FOR PLAYTESTING PURPOSES
-        "USED_PIZZA_STONE": true,
-        "TUT_DONE": true
+        // "USED_PIZZA_STONE": true,
+        // "TUT_DONE": true
 
       };
     }
