@@ -3,14 +3,16 @@ class TitleScreen {
         this.progress = progress;
     }
 
-    getOptions() {
+    getOptions(resolve) {
         return[
             {
                 label: "New Game",
                 description: "Start a new pizza adventure!",
+                
                 handler: () => {
-                    this.close();
+                this.close();
                     resolve();
+                    
                 }
             }
         ]

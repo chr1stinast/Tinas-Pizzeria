@@ -75,12 +75,20 @@ class Overworld {
    this.map.mountObjects();
   }
   
-  init() {
+  async init() {
+
+    const container = document.querySelector(".game-container");
 
     // this.hud = new Hud();
     // this.hud.init(document.querySelector(".game-container"));
 
-   this.startMap(window.OverworldMaps.DemoRoom);
+    //Show the title screen
+    this.titleScreen = new TitleScreen({
+      //
+    })
+    await this.titleScreen.init(container);
+
+  this.startMap(window.OverworldMaps.DemoRoom);
   
   
    this.bindActionInput();
@@ -90,6 +98,7 @@ class Overworld {
    this.directionInput.init();
   
    this.startGameLoop();
+   
   
   
    if (window.playerState.storyFlags["TUTORIAL"] == true) {
