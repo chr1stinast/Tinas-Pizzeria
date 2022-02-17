@@ -17,7 +17,7 @@ window.PizzaTypes = {
     },
     "f001": {
       name: "Pepperoni Deluxe",
-      description: "A classic Pepperoni Pizza",
+      description: "A classic Pepperoni Pizza.",
       type: PizzaTypes.fungi,
       src: "/images/characters/pizzas/f001.png",
       icon: "/images/icons/fungi.png",

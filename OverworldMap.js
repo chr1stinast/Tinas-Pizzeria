@@ -290,7 +290,11 @@ window.OverworldMaps = {
           {
             required: ["SATISFIED"],
             events: [
-              { type: "textMessage", text: "you have satisfied me mortal. And for that I thank you.", audioloc: "sans2", faceHero: "hungryMate" }
+              { type: "textMessage", text: "you have satisfied me mortal. And for that I thank you.", audioloc: "sans2", faceHero: "hungryMate" },
+              { who: "hungryMate", type: "walk",  direction: "down" },
+              { who: "hungryMate", type: "walk",  direction: "down" },
+              { who: "hungryMate", type: "walk",  direction: "down" },
+              { who: "hungryMate", type: "walk",  direction: "down" },
             ]
           },
           {
@@ -398,6 +402,7 @@ window.OverworldMaps = {
               { type: "talk", optionA: "Most certainly ma'am! Why don't you take a sit right here?", optionB: "Of course! And would you like that with a nice side of attitude and a seasoning of disrespect?", optionC: "maria's a flop", 
                 description: "The hungry customer wants food!", ans1: "Finally, some decent service around here. Now fetch me a pizza won't you", ans2: "Oh ho ho, you're going to regret saying that.", ans3: "...I'll sit myself down. Just get me my food will you.",
                 flag1: "FOOD", flag2: "END", flag3: "MARIA4", audioloc: "sans2"},
+                { type: "removeStoryFlag", flag: "USED_PIZZA_STONE"},
             ]
           }
         ]
@@ -743,7 +748,7 @@ window.OverworldMaps = {
       }),
       npcC: new Person({
         x: utils.withGrid(8),
-        y: utils.withGrid(5),
+        y: utils.withGrid(6),
         src: "/images/characters/people/npc4.png",
         
         talking: [
@@ -778,7 +783,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "IM REALLY PROUD OF YOU", audioloc: "tor"},
               { type: "textMessage", text: "YOU'RE LIKE THE DAUGHTER I NEVER HAD...", audioloc: "tor"},
               { type: "talk", optionA: "um... okay?", optionB: "and you're like the mom i have had, chef flop number 75!", optionC: "maria's a flop", description: "Chef flop number 75 is approving of you!",
-              ans1: "...JUST GET BACK TO MAKING PIZZAS KIDDO.", flag1: "TUT_DONE", ans2: "HE HE, TAKE CARE OF YOURSELF OUT THERE KIDDO.", flag2: "TUT_DONE", ans3: "HE HE, YOU'RE A WEIRD ONE, KIDDO.", flag3: "MARIA0", audioloc: "tor"},
+              ans1: "...JUST GET BACK TO WORK KIDDO.", flag1: "TUT_DONE", ans2: "HE HE, TAKE CARE OF YOURSELF OUT THERE KIDDO.", flag2: "TUT_DONE", ans3: "HE HE, YOU'RE A WEIRD ONE, KIDDO.", flag3: "MARIA0", audioloc: "tor"},
               { type: "removeStoryFlag", flag: "TUTORIAL"},
               { type: "addStoryFlag", flag: "READY"},
               { who: "npcC", type: "stand",  direction: "up"}

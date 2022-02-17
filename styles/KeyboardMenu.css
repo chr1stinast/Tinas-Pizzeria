@@ -17,7 +17,7 @@
     font-family: inherit;
     padding:0;
     padding-left: 1em;
-    font-size: 10px;
+    font-size: 6px;
 }
 .KeyboardMenu button:focus {
     background: var(--menu-selected-background);

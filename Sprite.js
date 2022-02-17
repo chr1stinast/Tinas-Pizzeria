@@ -71,6 +71,7 @@ class Sprite {
       if (this.frame === undefined) {
         this.currentAnimationFrame = 0;
       }
+      console.log(this.animationFrameLimit);
     }
 
     // draw game object on canvas using coordinates 
