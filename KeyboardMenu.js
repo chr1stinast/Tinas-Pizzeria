@@ -76,7 +76,7 @@ class KeyboardMenu {
         })
         this.down = new KeyPressListener("ArrowDown", () => {
             const current = Number(this.prevFocus.getAttribute("data-button"));
-            const prevButton = Array.from(this.element.querySelectorAll("button[data-button]")).find(el => {
+            const nextButton = Array.from(this.element.querySelectorAll("button[data-button]")).find(el => {
                 return el.dataset.button > current && !el.disabled;
             })
             nextButton?.focus();
