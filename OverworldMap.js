@@ -190,7 +190,7 @@ window.OverworldMaps = {
             ]
           },
           {
-            required: ["MARIA0", "MARIA1", "MARIA2", "MARIA3"],
+            required: ["MARIA0", "MARIA1", "MARIA2", "MARIA3", "MARIA4"],
             events: [
               { type: "textMessage", text: "you know, I think you have an unhealthy obsession with Maria.", audioloc: "sans", faceHero: "npcA"},
             ]
@@ -271,7 +271,7 @@ window.OverworldMaps = {
               // { type: "ask", target: 3, answer: "ok?"},
               // { type: "ask"},
               // i can call walk to door through this!
-              { who: "hero", type: "walk",  direction: "up" },
+              { who: "hero", type: "walk",  direction: "down" },
             ]
           } // set off the next event??
         ]
@@ -374,6 +374,22 @@ window.OverworldMaps = {
             ]
           },
           {
+            required: ["MARIA4"],
+            events: [
+              { type: "textMessage", text: "...", audioloc: "sans2", faceHero: "hungryMate" },
+              { type: "textMessage", text: "........", audioloc: "sans2"},
+              { type: "textMessage", text: "............................", audioloc: "sans2"},
+              { type: "textMessage", text: "Why that.", audioloc: "sans2"},
+              { type: "textMessage", text: "Was.", audioloc: "sans2"},
+              { type: "textMessage", text: "DELICIOUS!!!!", audioloc: "sans2"},
+              { type: "textMessage", text: "MAKE ME ANOTHER ONE, RIGHT NOW.", audioloc: "sans2"},
+              { type: "addStoryFlag", flag: "HUNGRY_SERVED"},
+              { type: "addStoryFlag", flag: "HUNGRYY"},
+              { type: "removeStoryFlag", flag: "FOOD"},
+              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE"}
+            ]
+          },
+          {
             events: [
               { type: "textMessage", text: "Excuse me miss, can I help you with anything?", audioloc: "1", faceHero: "hungryMate" },
               { type: "textMessage", text: "I.", audioloc: "sans2" },
@@ -381,7 +397,7 @@ window.OverworldMaps = {
               { type: "textMessage", text: "FOOOOOOOOOOOOOOOOD.", audioloc: "sans2" },
               { type: "talk", optionA: "Most certainly ma'am! Why don't you take a sit right here?", optionB: "Of course! And would you like that with a nice side of attitude and a seasoning of disrespect?", optionC: "maria's a flop", 
                 description: "The hungry customer wants food!", ans1: "Finally, some decent service around here. Now fetch me a pizza won't you", ans2: "Oh ho ho, you're going to regret saying that.", ans3: "...I'll sit myself down. Just get me my food will you.",
-                flag1: "FOOD", flag2: "END", flag3: "FOOD", audioloc: "sans2"},
+                flag1: "FOOD", flag2: "END", flag3: "MARIA4", audioloc: "sans2"},
             ]
           }
         ]
