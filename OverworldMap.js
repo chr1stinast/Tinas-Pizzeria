@@ -168,7 +168,7 @@ window.OverworldMaps = {
       }),
       npcA: new Person({
         x: utils.withGrid(7),
-        y: utils.withGrid(9),
+        y: utils.withGrid(11),
         src: "/images/characters/people/npc1.png",
         behaviorLoop: [ // makes behavior loops for characters
           { type: "stand", direction: "left", time: 800 },
@@ -276,7 +276,7 @@ window.OverworldMaps = {
           } // set off the next event??
         ]
       }),
-      hungryMate: new Person({
+      hungryMate: new Person({ // 6,12
         x: utils.withGrid(6),
         y: utils.withGrid(12),
         src: "/images/characters/people/npc1.png",
@@ -291,10 +291,10 @@ window.OverworldMaps = {
             required: ["SATISFIED"],
             events: [
               { type: "textMessage", text: "you have satisfied me mortal. And for that I thank you.", audioloc: "sans2", faceHero: "hungryMate" },
-              { who: "hungryMate", type: "walk",  direction: "down" },
-              { who: "hungryMate", type: "walk",  direction: "down" },
-              { who: "hungryMate", type: "walk",  direction: "down" },
-              { who: "hungryMate", type: "walk",  direction: "down" },
+              // { who: "hungryMate", type: "walk",  direction: "down" },
+              // { who: "hungryMate", type: "walk",  direction: "down" },
+              // { who: "hungryMate", type: "walk",  direction: "down" },
+              // { who: "hungryMate", type: "walk",  direction: "down" },
             ]
           },
           {
@@ -402,7 +402,12 @@ window.OverworldMaps = {
               { type: "talk", optionA: "Most certainly ma'am! Why don't you take a sit right here?", optionB: "Of course! And would you like that with a nice side of attitude and a seasoning of disrespect?", optionC: "maria's a flop", 
                 description: "The hungry customer wants food!", ans1: "Finally, some decent service around here. Now fetch me a pizza won't you", ans2: "Oh ho ho, you're going to regret saying that.", ans3: "...I'll sit myself down. Just get me my food will you.",
                 flag1: "FOOD", flag2: "END", flag3: "MARIA4", audioloc: "sans2"},
-                { type: "removeStoryFlag", flag: "USED_PIZZA_STONE"},
+              { who: "hungryMate", type: "walk",  direction: "right" },
+              { who: "hungryMate", type: "walk",  direction: "right" },
+              { who: "hungryMate", type: "walk",  direction: "right" },
+              { who: "hungryMate", type: "walk",  direction: "up" },
+              { who: "hungryMate", type: "stand",  direction: "left" },
+              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE"},
             ]
           }
         ]
@@ -461,7 +466,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(9,10)] : true,
       [utils.asGridCoord(7,7)] : true,
       [utils.asGridCoord(8,7)] : true,
-      [utils.asGridCoord(9,7)] : true,
+      //[utils.asGridCoord(9,7)] : true,
 
 
 
@@ -552,7 +557,7 @@ window.OverworldMaps = {
             { who: "hungryMate", type: "stand", direction: "right", time: 200 },
             { who: "hungryMate", type: "stand", direction: "down", time: 200 },
             { who: "hungryMate", type: "stand", direction: "left", time: 200 },
-            { type: "textMessage", text: "WHY, IT FEELS AS IF I AM LOSING MY MIND.", audioloc: "sans2" },
+            { type: "textMessage", text: "MY, IT FEELS AS IF I AM LOSING MY MIND.", audioloc: "sans2" },
             { who: "hungryMate", type: "walk", direction: "up"},
             { who: "hungryMate", type: "walk", direction: "left"},
             { who: "hungryMate", type: "walk", direction: "down"},

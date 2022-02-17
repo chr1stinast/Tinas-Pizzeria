@@ -44,8 +44,15 @@ class PlayerState {
         "HUNGRY_NOT_SERVED": true,
         // FOR PLAYTESTING PURPOSES
         // "USED_PIZZA_STONE": true,
-        // "TUT_DONE": true
-
+        // "TUT_DONE": true,
+        // "TUTORIAL": false,
+        // "P1": false,
+        // "HUNGRY_NOT_SERVED": false,
+        // "MARIA0": true,
+        // "MARIA1": true,
+        // "MARIA2": true,
+        // "MARIA3": true,
+        // "MARIA4": true
       };
     }
 
