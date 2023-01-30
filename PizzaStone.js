@@ -3,7 +3,7 @@ class PizzaStone extends GameObject{
         super(config);
         this.sprite = new Sprite ({
             gameObject: this,
-            src: "/images/characters/pizza-stone.png",
+            src: "images/characters/pizza-stone.png",
             animations: {
                 "used-down" : [ [0,0] ], // pizza is already crafted, no dough
                 "unused-down" : [ [1,0] ] // has dough that will be used to craft the pizza

@@ -11,7 +11,7 @@ class Sprite {
       this.shadow = new Image();
       this.useShadow = true; // add (config.useShadow || false) if you want option to not add shadow
       if (this.useShadow) {
-        this.shadow.src = "/images/characters/shadow.png";
+        this.shadow.src = "images/characters/shadow.png";
       }
       // load shadow
       this.shadow.onload = () => {

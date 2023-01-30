@@ -158,8 +158,8 @@ window.OverworldMaps = {
   
   DemoRoom: {
     id: "DemoRoom",
-    lowerSrc: "/images/maps/DiningLower.png",
-    upperSrc: "/images/maps/DiningUpper.png",
+    lowerSrc: "images/maps/DiningLower.png",
+    upperSrc: "images/maps/DiningUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
@@ -169,7 +169,7 @@ window.OverworldMaps = {
       npcA: new Person({
         x: utils.withGrid(7),
         y: utils.withGrid(11),
-        src: "/images/characters/people/npc1.png",
+        src: "images/characters/people/npc1.png",
         behaviorLoop: [ // makes behavior loops for characters
           { type: "stand", direction: "left", time: 800 },
           { type: "stand", direction: "up", time: 800 },
@@ -279,7 +279,7 @@ window.OverworldMaps = {
       hungryMate: new Person({ // 6,12
         x: utils.withGrid(6),
         y: utils.withGrid(12),
-        src: "/images/characters/people/npc1.png",
+        src: "images/characters/people/npc1.png",
         // behaviorLoop: [ // makes behavior loops for characters
         //   { type: "stand", direction: "left", time: 800 },
         //   { type: "stand", direction: "up", time: 800 },
@@ -415,7 +415,7 @@ window.OverworldMaps = {
       npcB: new Person({
         x: utils.withGrid(8),
         y: utils.withGrid(5),
-        src: "/images/characters/people/Matt.png",
+        src: "images/characters/people/Matt.png",
         // behaviorLoop: [
         //   { type: "walk", diretion: "left"},
         //   { type: "stand", direction: "up", time: 800 },
@@ -743,8 +743,8 @@ window.OverworldMaps = {
   },
   Kitchen: {
     id: "Kitchen",
-    lowerSrc: "/images/maps/NewKitchen.png",
-    upperSrc: "/images/maps/KitchenUpper.png",
+    lowerSrc: "images/maps/NewKitchen.png",
+    upperSrc: "images/maps/KitchenUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
@@ -754,7 +754,7 @@ window.OverworldMaps = {
       npcC: new Person({
         x: utils.withGrid(8),
         y: utils.withGrid(6),
-        src: "/images/characters/people/npc4.png",
+        src: "images/characters/people/npc4.png",
         
         talking: [
           {
@@ -924,19 +924,19 @@ window.OverworldMaps = {
   },
   Street: {
     id: "Street",
-    lowerSrc: "/images/maps/StreetLower.png",
-    upperSrc: "/images/maps/StreetUpper.png",
+    lowerSrc: "images/maps/StreetLower.png",
+    upperSrc: "images/maps/StreetUpper.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
         x: utils.withGrid(5),
         y: utils.withGrid(10),
-        src: "/images/characters/people/Tina.png"
+        src: "images/characters/people/Tina.png"
       }),
       npcB: new Person({
         x: utils.withGrid(7),
         y: utils.withGrid(10),
-        src: "/images/characters/people/Mika.png",
+        src: "images/characters/people/Mika.png",
         talking: [
           {
             required: ["MARIA2"],

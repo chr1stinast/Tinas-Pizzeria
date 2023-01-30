@@ -22,7 +22,7 @@ class TitleScreen {
         this.element = document.createElement("div");
         this.element.classList.add("TitleScreen");
         this.element.innerHTML = (`
-            <img class="TitleScreen_logo" src="/images/logo2.png" alt="Papas-Games-Remake" />
+            <img class="TitleScreen_logo" src="images/logo2.png" alt="Papas-Games-Remake" />
         `)
     }
     
